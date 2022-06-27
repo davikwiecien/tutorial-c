@@ -38,77 +38,77 @@
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Na janela que se abrir, basta selecionar <b>Install</b>.</p>
 
-<img class="img-css" src="https://davikwiecien.github.io/imagens/1.png" alt="1ª imagem" width="430px" height="340px">
+<img class="img-css" src="https://davikwiecien.github.io/tutorial-c/imagens/1.png" alt="1ª imagem" width="430px" height="340px">
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Na próxima janela, pode-se deixar o drive C: como diretório de instalação e selecionar <b>Continue</b>.</p>
 
-<img class="img-css" src="https://davikwiecien.github.io/imagens/2.png" alt="1ª imagem" width="430px" height="300px">
+<img class="img-css" src="https://davikwiecien.github.io/tutorial-c/imagens/2.png" alt="1ª imagem" width="430px" height="300px">
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Na próxima janela, basta esperar o download e a configuração do gerenciador de instalação do MinGW e selecionar <b>Continue</b>.</p>
 
-<img class="img-css" src="https://davikwiecien.github.io/imagens/3.png" alt="2ª imagem" width="430px" height="300px">
+<img class="img-css" src="https://davikwiecien.github.io/tutorial-c/imagens/3.png" alt="2ª imagem" width="430px" height="300px">
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No gerenciador de instalação, as opções <b>mingw32-base</b> e <b>mingw32-gcc-g++</b> já vem selecionadas, agora basta clicar com o botão direito em cima da primeira opção <b>mingw-developer-tool...</b> e selecionar <b>Mark for Installation</b>.</p>
 
-<img class="img-css" src="https://davikwiecien.github.io/imagens/4.png" alt="3ª imagem" width="700px" height="390px">
+<img class="img-css" src="https://davikwiecien.github.io/tutorial-c/imagens/4.png" alt="3ª imagem" width="700px" height="390px">
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Após selecionar o primeiro pacote, basta clicar em <b>Installation</b> e <b>Apply Changes</b>.</p>
 
-<img class="img-css" src="https://davikwiecien.github.io/imagens/5.png" alt="5ª imagem" width="700px" height="390px">
+<img class="img-css" src="https://davikwiecien.github.io/tutorial-c/imagens/5.png" alt="5ª imagem" width="700px" height="390px">
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Na janela que se abrir, basta selecionar <b>Apply</b> e aguardar a instalação dos pacotes.</p>
 
-<img class="img-css" src="https://davikwiecien.github.io/imagens/6.png" alt="6ª imagem" width="700px" height="390px">
+<img class="img-css" src="https://davikwiecien.github.io/tutorial-c/imagens/6.png" alt="6ª imagem" width="700px" height="390px">
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Assim que terminar, basta selecionar <b>Close</b> e fechar a janela do gerenciador de instalação.</p>
 
-<img class="img-css" src="https://davikwiecien.github.io/imagens/7.png" alt="7ª imagem" width="700px" height="390px">
+<img class="img-css" src="https://davikwiecien.github.io/tutorial-c/imagens/7.png" alt="7ª imagem" width="700px" height="390px">
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Uma vez instalado o MinGW é preciso verificar se podemos utilizar o GCC para compilar programas em C. Para isso, abriremos o prompt de comando do Windows pressionando as teclas <b>Windows + r</b> e digitando <b>cmd</b>.</p>
 
-<img class="img-css" src="https://davikwiecien.github.io/imagens/8.png" alt="8ª imagem" width="350px" height="180px">
+<img class="img-css" src="https://davikwiecien.github.io/tutorial-c/imagens/8.png" alt="8ª imagem" width="350px" height="180px">
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No prompt, digitaremos o comando <b>gcc --version</b> para verificarmos se o gcc está devidamente instalado. Percebe-se que o compilador não foi encontrado, apesar de termos instalado. Isso acontece porque o caminho onde se encontram os binários do MinGW não está na <a href="https://pt.wikipedia.org/wiki/Vari%C3%A1vel_de_ambiente" target="_blank">variável de ambiente</a> <a href="https://en.wikipedia.org/wiki/PATH_(variable)" target="_blank">PATH</a> do sistema operacional. Isso é necessário para que o o gcc possa ser executado de qualquer diretório do sistema, não somente no diretório corrente de instalação.</p>
 
-<img class="img-css" src="https://davikwiecien.github.io/imagens/9.png" alt="9ª imagem" width="460px" height="240px">
+<img class="img-css" src="https://davikwiecien.github.io/tutorial-c/imagens/9.png" alt="9ª imagem" width="460px" height="240px">
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Precisamos adicionar o caminho do MinGW na variável PATH, para isso, digitaremos <b>var</b> na pesquisa do Windows para configurarmos as variáveis de ambiente do sistema.</b>.</p>
 
-<img class="img-css" src="https://davikwiecien.github.io/imagens/10.png" alt="10ª imagem" width="500px" height="370px">
+<img class="img-css" src="https://davikwiecien.github.io/tutorial-c/imagens/10.png" alt="10ª imagem" width="500px" height="370px">
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nas propriedades do sistema, selecionaremos <b>Variáveis de ambiente...</b>.</p>
 
-<img class="img-css" src="https://davikwiecien.github.io/imagens/11.png" alt="11ª imagem" width="300px" height="400px">
+<img class="img-css" src="https://davikwiecien.github.io/tutorial-c/imagens/11.png" alt="11ª imagem" width="300px" height="400px">
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Na janela de configuração das variáveis de ambiente é preciso clicar na variável <b>Path</b> em <b>Variáveis do sistema</b> e selecionar <b>Editar...</b>.</p>
 
-<img class="img-css" src="https://davikwiecien.github.io/imagens/12.png" alt="12ª imagem" width="500px" height="420px">
+<img class="img-css" src="https://davikwiecien.github.io/tutorial-c/imagens/12.png" alt="12ª imagem" width="500px" height="420px">
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Agora, temos que adicionar o caminho onde se encontram os binários do MinGW. Abrindo o Gerenciador de Arquivos, iremos localizar o diretório <b>C:\MinGW\bin</b> e copiar o seu caminho.</p>
 
-<img class="img-css" src="https://davikwiecien.github.io/imagens/13.png" alt="13ª imagem" width="680px" height="410px">
+<img class="img-css" src="https://davikwiecien.github.io/tutorial-c/imagens/13.png" alt="13ª imagem" width="680px" height="410px">
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Copiado todo o caminho, basta voltar na janela de edição da variável PATH para adicioná-lo clicando em <b>Novo</b> e colando-o. Feito isso, basta selecionar <b>Ok</b>.</p>
 
-<img class="img-css" src="https://davikwiecien.github.io/imagens/14.png" alt="14ª imagem" width="340px" height="350px">
+<img class="img-css" src="https://davikwiecien.github.io/tutorial-c/imagens/14.png" alt="14ª imagem" width="340px" height="350px">
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Voltando ao prompt (se estava aberto, é preciso fechá-lo e abri-lo novamente) e digitando novamente o comando <b>gcc --version</b>, percebemos que agora o gcc foi encontrado e está pronto para compilar nosso programas.</p>
 
-<img class="img-css" src="https://davikwiecien.github.io/imagens/15.png" alt="15ª imagem" width="460px" height="240px">
+<img class="img-css" src="https://davikwiecien.github.io/tutorial-c/imagens/15.png" alt="15ª imagem" width="460px" height="240px">
 
 <h3 class="topico"><ul><li>Instalando o GCC no Linux (Ubuntu)</li></ul></h3>
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No Linux, basta instalar o pacote <b>build-essential</b> para obtermos o compilador GCC. Para isso, abriremos o terminal do Linux com <b>ctrl + alt + t</b> e executaremos o comando <b>sudo apt install build-essential</b>.</p>
 
-<img class="img-css" src="https://davikwiecien.github.io/imagens/t1.png" alt="1º terminal do Ubuntu" width="460px" height="320px">
+<img class="img-css" src="https://davikwiecien.github.io/tutorial-c/imagens/t1.png" alt="1º terminal do Ubuntu" width="460px" height="320px">
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Em seguida, basta confirmar a instalação com <b>s</b>.</p>
 
-<img class="img-css" src="https://davikwiecien.github.io/imagens/t2.png" alt="2º terminal do Ubuntu" width="460px" height="320px">
+<img class="img-css" src="https://davikwiecien.github.io/tutorial-c/imagens/t2.png" alt="2º terminal do Ubuntu" width="460px" height="320px">
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Assim que finalizar a instalação, podemos verificar se o GCC pode ser encontrado com <b>gcc --version</b>. No Linux, é necessário apenas seguir esses passos para instalar o compilador GCC.</p>
 
-<img class="img-css" src="https://davikwiecien.github.io/imagens/t3.png" alt="3º terminal do Ubuntu" width="460px" height="320px">
+<img class="img-css" src="https://davikwiecien.github.io/tutorial-c/imagens/t3.png" alt="3º terminal do Ubuntu" width="460px" height="320px">
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A partir de agora, com um editor de texto e um compilador instalado, podemos escrever nossos códigos-fonte em linguagem C.</p>
 
