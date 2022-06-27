@@ -90,7 +90,7 @@
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ao executar o programa, a saída que obtemos é a seguinte:</p>
 
-<img class="img-css" src="https://davikwiecien.github.io/imagens/entrada-saida-1.png" alt="1ª imagem" width="420px" height="280px">
+<img class="img-css" src="https://davikwiecien.github.io/tutorial-c/imagens/entrada-saida-1.png" alt="1ª imagem" width="420px" height="280px">
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Isso permite que o comando printf() seja usado para escrever não apenas dados, mas sentenças que façam sentido para o usuário do programa.</p>
 
@@ -130,7 +130,7 @@
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ao executar o programa, a saída que obtemos é a seguinte:</p>
 
-<img class="img-css" src="https://davikwiecien.github.io/imagens/entrada-saida-2.png" alt="2ª imagem" width="420px" height="280px">
+<img class="img-css" src="https://davikwiecien.github.io/tutorial-c/imagens/entrada-saida-2.png" alt="2ª imagem" width="420px" height="280px">
 
 <h3 class="topico"><ul><li>scanf() e getchar()</li></ul></h3>
 
@@ -230,7 +230,7 @@
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ao executar o programa, a saída que obtemos é a seguinte:</p>
 
-<img class="img-css" src="https://davikwiecien.github.io/imagens/entrada-saida-3.png" alt="3ª imagem" width="420px" height="280px">
+<img class="img-css" src="https://davikwiecien.github.io/tutorial-c/imagens/entrada-saida-3.png" alt="3ª imagem" width="420px" height="280px">
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Podemos ler inúmeras variáveis com o scanf() e, inclusive, imprimir o valor de cada uma após a leitura:</p>
 
@@ -259,7 +259,7 @@
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ao executar o programa, a saída que obtemos é a seguinte:</p>
 
-<img class="img-css" src="https://davikwiecien.github.io/imagens/entrada-saida-4.png" alt="4ª imagem" width="420px" height="280px">
+<img class="img-css" src="https://davikwiecien.github.io/tutorial-c/imagens/entrada-saida-4.png" alt="4ª imagem" width="420px" height="280px">
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Além de usarmos função scanf(), podemos ler dados do teclado com a função <b>getchar() (get character)</b>, que permite ler um único caractere do teclado. Sua forma geral corresponde:</p>
 
@@ -294,7 +294,7 @@
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ao executar o programa, a saída que obtemos é a seguinte:</p>
 
-<img class="img-css" src="https://davikwiecien.github.io/imagens/entrada-saida-5.png" alt="5ª imagem" width="420px" height="280px">
+<img class="img-css" src="https://davikwiecien.github.io/tutorial-c/imagens/entrada-saida-5.png" alt="5ª imagem" width="420px" height="280px">
 
 <h3 class="topico"><ul><li>gets() e fgets()</li></ul></h3>
 
@@ -319,7 +319,7 @@
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ao ler uma string, não é necessário passar o endereço da mesma, visto que uma string já faz uma referência ao endereço de sua primeira posição. Ao executar o programa, a saída que obtemos é a seguinte:</p>
 
-<img class="img-css" src="https://davikwiecien.github.io/imagens/entrada-saida-6.png" alt="6ª imagem" width="420px" height="280px">
+<img class="img-css" src="https://davikwiecien.github.io/tutorial-c/imagens/entrada-saida-6.png" alt="6ª imagem" width="420px" height="280px">
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Com o scanf() nós conseguimos ler uma palavra, mas essa função não nos permite ler palavras compostas, pois a leitura é encerrada assim que um espaço é encontrado. Para isso, temos outras duas funções: <b>gets()</b> e <b>fgets</b>.</p>
 
@@ -346,7 +346,7 @@
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ao executar o programa, a saída que obtemos é a seguinte:</p>
 
-<img class="img-css" src="https://davikwiecien.github.io/imagens/entrada-saida-7.png" alt="7ª imagem" width="420px" height="280px">
+<img class="img-css" src="https://davikwiecien.github.io/tutorial-c/imagens/entrada-saida-7.png" alt="7ª imagem" width="420px" height="280px">
 
 <br><br>
 
@@ -377,13 +377,13 @@
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;O código acima faz o mesmo que o código do gets(), porém conseguimos ter controle sobre a quantidade de dados informados, tornando-o mais seguro ao impedir ataques de Buffer Overflow. Não conseguiríamos enviar para a string mais que <b>9</b> caracteres. Mas por que 9 se definimos o tamanho da string como <b>10</b>? Isso acontece porque strings são finalizadas com um caractere especial chamado <b>caractere terminador</b>, identificado por um <b>\0</b>, portanto, se digitássemos 10 caracteres, apenas 9 seriam considerados e o último assumiria o terminador da string. Abaixo, a imagem demonstra como uma string (sequência de caracteres) é representada na memória:</p>
 
-<img class="img-css" src="https://davikwiecien.github.io/imagens/string-in-memory.png" alt="String na memória" width="450px" height="180px"><br>
+<img class="img-css" src="https://davikwiecien.github.io/tutorial-c/imagens/string-in-memory.png" alt="String na memória" width="450px" height="180px"><br>
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Quando falamos em strings, que nada mais são do que arrays de caracteres ocupando <b>n</b> bytes na memória, precisamos entender que as mesmas possuem <b>índices</b>, que "marcam" as suas posições. Todo array inicia com o índice <b>0</b>, portanto, quando falamos, por exemplo, do índice <b>6</b> de um array, estamos falando de sua sétima posição. Cada índice possui um endereço de memória, sendo o índice <b>0</b> o endereço inicial daquela string. Também notamos a presença do caractere nulo no índice <b>5</b> finalizando a string <b>Hello</b>.</p>
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ao executar o programa, a saída que obtemos é a seguinte:</p>
 
-<img class="img-css" src="https://davikwiecien.github.io/imagens/entrada-saida-8.png" alt="8ª imagem" width="420px" height="280px">
+<img class="img-css" src="https://davikwiecien.github.io/tutorial-c/imagens/entrada-saida-8.png" alt="8ª imagem" width="420px" height="280px">
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Isto posto, vimos a melhor forma de lermos strings do usuário, fazendo o controle de quantos dados são enviados. Portanto, é sempre preferível o uso da função <b>fgets()</b> ao uso de <b>scanf()</b> e, principalmente, ao uso de <b>gets()</b> (nunca deve ser usado).</p>
 
