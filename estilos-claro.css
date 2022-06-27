@@ -21,8 +21,8 @@ body {
 .sidenav a {
 	color: white;
 	padding: 16px;
-	display: block;
 	text-decoration: none;
+	display: block;
 	font-weight: normal;
 	font-family: 'Work Sans', sans-serif;
 }
@@ -94,7 +94,6 @@ body {
 .titulo {
 	flex: 80%;
 }
-
 
 #table1, #table1 tr, #table1 td, #table2, #table2 tr, #table2 td {
 	border: none;
