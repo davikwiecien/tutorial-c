@@ -235,3 +235,8 @@ a {
    color: rgb(0, 168, 204);		
 }
 
+a:visited {
+   color: rgb(2, 204, 247);
+}
+
+
