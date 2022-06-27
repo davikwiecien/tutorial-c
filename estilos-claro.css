@@ -21,6 +21,7 @@ body {
 .sidenav a {
 	color: white;
 	padding: 16px;
+	display: block;
 	text-decoration: none;
 	font-weight: normal;
 	font-family: 'Work Sans', sans-serif;
