@@ -27,9 +27,9 @@
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Um dos conceitos mais primordiais quando falamos de programação é o de <b>variável</b>. Primeiro precisamos saber em que local as informações de um <a href="https://pt.wikipedia.org/wiki/Processo_(inform%C3%A1tica)" target="_blank">processo (programa em execução)</a> são armazenadas nos computadores: na <a href="https://pt.wikipedia.org/wiki/Mem%C3%B3ria_de_acesso_aleat%C3%B3rio" target="_blank">memória RAM</a>. A memória RAM é uma peça de hardware <a href="https://en.wikipedia.org/wiki/Volatile_memory" target="_blank">volátil</a> que tem como função básica armazenar as instruções de um processo e servir como uma memória intermediária auxiliando o processador no processamento das instruções. As informações respectivas ao programa armazenadas no <a href="https://pt.wikipedia.org/wiki/Dispositivo_de_armazenamento_de_dados" target="_blank">periférico de armazenamento</a> são movidas para a RAM ao abri-lo o e através de um <a href="https://pt.wikipedia.org/wiki/Ciclo_de_instru%C3%A7%C3%A3o" target="_blank">ciclo de busca e execução</a> o processador realiza todo o processamento. Toda a memória RAM é segmentada em diversos <a href="https://pt.wikipedia.org/wiki/Segmenta%C3%A7%C3%A3o_(mem%C3%B3ria)" target="_blank">segmentos de memória</a> divididos em <a href="https://pt.wikipedia.org/wiki/Endereço_(memória)" target="_blank">endereços de memória</a> cujos tamanhos são medidos em <a href="https://pt.wikipedia.org/wiki/Byte" target="_blank">bytes</a>. São nesses "locais" que as informações de absolutamente tudo a respeito dos programas são armazenadas — nos endereços de memória. Na prática, uma variável é uma abstração para um endereço de memória, ou seja, uma variável vai armazenar alguma informação enquanto um programa estiver em execução. Abaixo, as duas imagens ilustram um processo carregado em memória:</p>
 
 <center>
-<img class="img-css" src="https://davikwiecien.github.io/imagens/disk-memory-cpu.png" alt="Disco, memória e processador" width="450px" height="310px">
+<img class="img-css" src="https://davikwiecien.github.io/tutorial-c/imagens/disk-memory-cpu.png" alt="Disco, memória e processador" width="450px" height="310px">
 
-<img class="img-css" src="https://davikwiecien.github.io/imagens/addresses.png" alt="Disco, memória e processador" width="450px" height="310px">
+<img class="img-css" src="https://davikwiecien.github.io/tutorial-c/imagens/addresses.png" alt="Disco, memória e processador" width="450px" height="310px">
 </center>
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Na primeira imagem, vemos um programa armazenado em um disco rígido sendo carregado na memória RAM. Os computadores contam com um <a href="https://pt.wikipedia.org/wiki/Unidade_de_gerenciamento_de_mem%C3%B3ria" target="_blank">MMU (Memory Management Unit)</a> implementado como parte do processador ou como um circuito integrado separado cuja função é converter os endereços de memória físicos da RAM para <a href="https://pt.wikipedia.org/wiki/Mem%C3%B3ria_virtual" target="_blank">endereços de memória virtuais</a> com o auxílio de uma tabela chamada <a href="https://pt.wikipedia.org/wiki/Pagina%C3%A7%C3%A3o_de_mem%C3%B3ria" target="_blank">tabela de paginação</a>. As instruções de um processo são armazenados propriamente nesses endereços virtuais, para então serem processados pelo processador.</p>
@@ -73,7 +73,7 @@
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;O int que antecede o identificador especifica que estamos criando uma variável inteira, <b>x</b> define o identificador da variável, <b>=</b> indica uma <a href="https://pt.wikipedia.org/wiki/Atribui%C3%A7%C3%A3o_(computa%C3%A7%C3%A3o)" target="_blank">atribuição</a> e <b>10</b> é o valor inteiro atribuído a x. Acrescentamos ao printf() mais alguns detalhes para imprimir o valor de x. Tudo o que estiver entre aspas <b>""</b> representa o que será escrito na tela, nesse caso, <b>x = 10</b>. <b>%d</b> é um especificador de formato da linguagem C e serve como um <a href="https://en.wikiversity.org/wiki/C_Programming/Input_and_Output" target="_blank">marcador de posição</a> onde o valor de uma variável inteira ou um valor literal inteiro deve aparecer na string'. <b>\n</b> é um dos vários <a href="https://pt.wikipedia.org/wiki/Caractere_de_escape" target="_blank">caracteres de escape</a> da linguagem C, que funcionam como caracteres de controle, mas não são caracteres gráficos, nesse caso, \n é uma <a href="https://en.wikipedia.org/wiki/Newline" target="_blank">quebra de linha</a>, para imprimir a mensagem e saltar o cursor para a próxima linha. Por último, fora das aspas e separado por vírgula está o identificador da variável (x), indicando que o especificador %d deve ser substituído por seu valor. Ao executar o programa, a saída que obtemos é a seguinte:</p>
 
-<img class="img-css" src="https://davikwiecien.github.io/imagens/tipos-de-dados-1.png" alt="1ª imagem" width="420px" height="280px">
+<img class="img-css" src="https://davikwiecien.github.io/tutorial-c/imagens/tipos-de-dados-1.png" alt="1ª imagem" width="420px" height="280px">
 <br><br>
 <font size="2">Obs.: O especificador <b>%i</b> também pode ser utilizado para imprimir números inteiros.</font>
 
@@ -96,7 +96,7 @@
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ao criarmos um variável que armazena um caractere, basta mudarmos a indicação do tipo de dado para char. A atribuição para um char também muda, um caractere deve ser escrito entre aspas simples <b>''</b>. O especificador do char é um <b>%c</b> e o identificador da variável deve correspondê-lo. Ao executar o programa, a saída que obtemos é a seguinte:</p>
 
-<img class="img-css" src="https://davikwiecien.github.io/imagens/tipos-de-dados-2.png" alt="2ª imagem" width="420px" height="280px">
+<img class="img-css" src="https://davikwiecien.github.io/tutorial-c/imagens/tipos-de-dados-2.png" alt="2ª imagem" width="420px" height="280px">
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Definindo uma variável do tipo <b>float</b> (real de precisão simples):</p>
 
@@ -117,7 +117,7 @@
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Usamos float para criarmos uma variável real de precisão simples (suporta com exatidão até 7 casas decimais). Na atribuição, um número inteiro ou com casas decimais deve ser fornecido (um ponto <b>.</b> deve separar a parte inteira da parte fracionária). Usamos um <b>%f</b> como especificador para uma variável do tipo float. Ao executar o programa, a saída que obtemos é a seguinte:</p>
 
-<img class="img-css" src="https://davikwiecien.github.io/imagens/tipos-de-dados-3.png" alt="3ª imagem" width="420px" height="280px">
+<img class="img-css" src="https://davikwiecien.github.io/tutorial-c/imagens/tipos-de-dados-3.png" alt="3ª imagem" width="420px" height="280px">
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Definindo uma variável do tipo <b>double</b> (real de dupla precisão):</p>
 
@@ -138,7 +138,7 @@
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Não há muita diferença na definição de uma variável float para uma variável double (suporta com exatidão até 15 casas decimais). Especificamos o tipo de dado como double, mas a atribuição de um valor real continua igual. O especificador de formato para double é o <b>%lf</b>, mas %f ainda pode ser usado. Há uma diferença na leitura de dados reais, mas veremos isso mais adiante. Ao executar o programa, a saída que obtemos é a seguinte:</p>
 
-<img class="img-css" src="https://davikwiecien.github.io/imagens/tipos-de-dados-4.png" alt="4ª imagem" width="420px" height="280px">
+<img class="img-css" src="https://davikwiecien.github.io/tutorial-c/imagens/tipos-de-dados-4.png" alt="4ª imagem" width="420px" height="280px">
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Por padrão, um número real é impresso com 6 casas decimais, mas podemos especificar quantas casas queremos com a seguinte sintaxe: <b>%.nf</b>, onde <b>n</b> representa o número de casas decimais. Eis um exemplo imprimindo um real com somente duas casas decimais:</p>
 
@@ -159,7 +159,7 @@
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ao executar o programa, a saída que obtemos é a seguinte:</p>
 
-<img class="img-css" src="https://davikwiecien.github.io/imagens/tipos-de-dados-5.png" alt="5ª imagem" width="420px" height="280px">
+<img class="img-css" src="https://davikwiecien.github.io/tutorial-c/imagens/tipos-de-dados-5.png" alt="5ª imagem" width="420px" height="280px">
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Os tipos de dados apresentados e seus respectivos especificadores de formato são os principais da linguagem C. Ainda temos o tipo <b>void</b>, mas esse tipo não pode ser usado com variáveis, somente com funções e ponteiros. Todos os tipos de dados vistos até aqui são conhecidos como tipos primitivos ou básicos.</p>
 
@@ -186,7 +186,7 @@
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Na linha <b>3</b>, foram definidas duas variáveis em uma só linha, isso é possível separando cada identificador por vírgula e atribuindo valor para cada um. No printf() da linha <b>8</b>, foram impressas as cinco variáveis definidas e o valor literal <b>20.5</b>. A variável <b>d</b> foi inicializada com um valor inteiro, mas impresso com quatro casas decimais. Ao executar o programa, a saída que obtemos é a seguinte:</p>
 
-<img class="img-css" src="https://davikwiecien.github.io/imagens/tipos-de-dados-6.png" alt="6ª imagem" width="420px" height="280px">
+<img class="img-css" src="https://davikwiecien.github.io/tutorial-c/imagens/tipos-de-dados-6.png" alt="6ª imagem" width="420px" height="280px">
 
 <h3 class="topico"><ul><li>Nomes de variáveis</li></ul></h3>
 
@@ -213,7 +213,7 @@
         <td>1cont</td>
         <td>-x</td>
         <td>Va-123</td>
-        <td><center><img src="https://davikwiecien.github.io/imagens/x-symbol.png" alt="X" width="50px" height="50px"></center></td>
+        <td><center><img src="https://davikwiecien.github.io/tutorial-c/imagens/x-symbol.png" alt="X" width="50px" height="50px"></center></td>
     </tr>
     <tr>
         <td>cont</td>
@@ -223,7 +223,7 @@
         <td>Int1</td>
         <td>Cont1</td>
         <td>X</td>
-        <td><center><img src="https://davikwiecien.github.io/imagens/check-symbol.png" alt="Check" width="50px" height="50px"></center></td>
+        <td><center><img src="https://davikwiecien.github.io/tutorial-c/imagens/check-symbol.png" alt="Check" width="50px" height="50px"></center></td>
     </tr>
 </table>
 </center>
@@ -256,7 +256,7 @@
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No código acima, a variável x foi definida com o valor <b>10</b> na linha <b>3</b> e foi redefinida para 20 na linha <b>6</b>. Ao executar o programa, a saída que obtemos é a seguinte:</p>
 
-<img class="img-css" src="https://davikwiecien.github.io/imagens/tipos-de-dados-7.png" alt="7ª imagem" width="420px" height="280px">
+<img class="img-css" src="https://davikwiecien.github.io/tutorial-c/imagens/tipos-de-dados-7.png" alt="7ª imagem" width="420px" height="280px">
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Além das variáveis, existem as constantes, onde o valor não varia. Uma constante permite guardar determinado dado ou valor na memória do computador, mas com a certeza de que esse valor não irá se alterar durante a execução do programa. Para definirmos uma constante, utilizaremos a palavra-chave <b>const</b>. Abaixo, um exemplo definindo uma constante:</p>
 
@@ -277,7 +277,7 @@
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ao executar o programa, a saída que obtemos é a seguinte:</p>
 
-<img class="img-css" src="https://davikwiecien.github.io/imagens/tipos-de-dados-8.png" alt="8ª imagem" width="420px" height="280px">
+<img class="img-css" src="https://davikwiecien.github.io/tutorial-c/imagens/tipos-de-dados-8.png" alt="8ª imagem" width="420px" height="280px">
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Se tentássemos redefinir o valor de uma constante, haveria um erro de compilação:</p>
 
@@ -301,7 +301,7 @@
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ao executar o programa, a saída que obtemos é a seguinte:</p>
 
-<img class="img-css" src="https://davikwiecien.github.io/imagens/tipos-de-dados-9.png" alt="9ª imagem" width="420px" height="280px">
+<img class="img-css" src="https://davikwiecien.github.io/tutorial-c/imagens/tipos-de-dados-9.png" alt="9ª imagem" width="420px" height="280px">
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A mensagem de erro acima nos informa que tentamos trocar o valor de uma constante (apenas leitura).</p>
 
@@ -328,7 +328,7 @@
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ao executar o programa, a saída que obtemos é a seguinte:</p>
 
-<img class="img-css" src="https://davikwiecien.github.io/imagens/tipos-de-dados-10.png" alt="10ª imagem" width="420px" height="280px">
+<img class="img-css" src="https://davikwiecien.github.io/tutorial-c/imagens/tipos-de-dados-10.png" alt="10ª imagem" width="420px" height="280px">
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Perceba que um valor aleatório foi impresso, nesse caso, o valor <b>2203648</b>. Como não atribuímos um valor para a variável x, 2203648 se tornou seu conteúdo.</p>
 
@@ -363,7 +363,7 @@
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ao executar o programa, a saída que obtemos é a seguinte:</p>
 
-<img class="img-css" src="https://davikwiecien.github.io/imagens/tipos-de-dados-11.png" alt="11ª imagem" width="420px" height="280px">
+<img class="img-css" src="https://davikwiecien.github.io/tutorial-c/imagens/tipos-de-dados-11.png" alt="11ª imagem" width="420px" height="280px">
 
 <h3 class="topico"><ul><li>Modificadores de tipo</li></ul></h3>
 
