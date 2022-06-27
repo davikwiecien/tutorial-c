@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+
+<meta charset="UTF-8">
+<html>
+
+<head>
+    <title>Variáveis, tipos de dados e modificadores de tipo</title>
+    <link id="tema" rel="stylesheet" type="text/css" href="../estilos-claro.css">
+</head>
+
+<body>
+
+<div class="nav">
+    <a class="botao" href="biblioteca-arquivos.html">Página anterior</a>
+        <div class="titulo">
+            <h1>Variáveis, tipos de dados e modificadores de tipo</h1> 
+        </div>
+    <a class="botao" href="impressao-leitura.html">Próxima página</a>
+</div>
+
+<div id="botoes">
+      <button type="button" onclick="mudarCSS()">Mudar a cor da página</button>
+</div>
+
+<h3 class="topico" style="margin-top: 100px;"><ul><li>O que é uma variável?</li></ul></h3>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Um dos conceitos mais primordiais quando falamos de programação é o de <b>variável</b>. Primeiro precisamos saber em que local as informações de um <a href="https://pt.wikipedia.org/wiki/Processo_(inform%C3%A1tica)" target="_blank">processo (programa em execução)</a> são armazenadas nos computadores: na <a href="https://pt.wikipedia.org/wiki/Mem%C3%B3ria_de_acesso_aleat%C3%B3rio" target="_blank">memória RAM</a>. A memória RAM é uma peça de hardware <a href="https://en.wikipedia.org/wiki/Volatile_memory" target="_blank">volátil</a> que tem como função básica armazenar as instruções de um processo e servir como uma memória intermediária auxiliando o processador no processamento das instruções. As informações respectivas ao programa armazenadas no <a href="https://pt.wikipedia.org/wiki/Dispositivo_de_armazenamento_de_dados" target="_blank">periférico de armazenamento</a> são movidas para a RAM ao abri-lo o e através de um <a href="https://pt.wikipedia.org/wiki/Ciclo_de_instru%C3%A7%C3%A3o" target="_blank">ciclo de busca e execução</a> o processador realiza todo o processamento. Toda a memória RAM é segmentada em diversos <a href="https://pt.wikipedia.org/wiki/Segmenta%C3%A7%C3%A3o_(mem%C3%B3ria)" target="_blank">segmentos de memória</a> divididos em <a href="https://pt.wikipedia.org/wiki/Endereço_(memória)" target="_blank">endereços de memória</a> cujos tamanhos são medidos em <a href="https://pt.wikipedia.org/wiki/Byte" target="_blank">bytes</a>. São nesses "locais" que as informações de absolutamente tudo a respeito dos programas são armazenadas — nos endereços de memória. Na prática, uma variável é uma abstração para um endereço de memória, ou seja, uma variável vai armazenar alguma informação enquanto um programa estiver em execução. Abaixo, as duas imagens ilustram um processo carregado em memória:</p>
+
+<center>
+<img class="img-css" src="https://davikwiecien.github.io/imagens/disk-memory-cpu.png" alt="Disco, memória e processador" width="450px" height="310px">
+
+<img class="img-css" src="https://davikwiecien.github.io/imagens/addresses.png" alt="Disco, memória e processador" width="450px" height="310px">
+</center>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Na primeira imagem, vemos um programa armazenado em um disco rígido sendo carregado na memória RAM. Os computadores contam com um <a href="https://pt.wikipedia.org/wiki/Unidade_de_gerenciamento_de_mem%C3%B3ria" target="_blank">MMU (Memory Management Unit)</a> implementado como parte do processador ou como um circuito integrado separado cuja função é converter os endereços de memória físicos da RAM para <a href="https://pt.wikipedia.org/wiki/Mem%C3%B3ria_virtual" target="_blank">endereços de memória virtuais</a> com o auxílio de uma tabela chamada <a href="https://pt.wikipedia.org/wiki/Pagina%C3%A7%C3%A3o_de_mem%C3%B3ria" target="_blank">tabela de paginação</a>. As instruções de um processo são armazenados propriamente nesses endereços virtuais, para então serem processados pelo processador.</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Na segunda imagem, observamos a ilustração de uma memória RAM e uma pequena região de memória onde alguns dados estão armazenados. Vamos tomar como exemplo o endereço de memória <b>0x10d3ba0c8</b>. Podemos dizer, a grosso modo, que esse endereço seria a representação "física" (não tão física assim) de uma variável que, no que lhe concerne, será utilizada para armazenar alguma informação importante para o programa.</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;O tamanho em bytes de um endereço de memória é definido conforme a arquitetura em uso ou como o programa foi compilado: em arquiteturas de <a href="https://pt.wikipedia.org/wiki/32_bits" target="_blank">32 bits</a> um endereço de memória possui 4 bytes e em arquiteturas de <a href="https://pt.wikipedia.org/wiki/64_bits" target="_blank">64 bits</a> um endereço de memória possui 8 bytes. Uma variável pode ocupar mais de um endereço de memória, dependendo de seu tamanho pode ocupar inúmeros endereços, como é o caso dos <a href="https://pt.wikipedia.org/wiki/Arranjo_(computa%C3%A7%C3%A3o)" target="_blank">arrays</a>.</p>
+
+<h3 class="topico"><ul><li>Tipos de dados</li></ul></h3>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Agora que sabemos como as informações são armazenadas em memória, iremos falar mais precisamente sobre quais tipos de dados são armazenados. O termo <b>tipo de dado</b> é bem autoexplicativo e se refere plenamente a isso: qual categoria de dado irá ocupar um ou vários endereços de memória. Basicamente, temos duas categorias de dados (três se considerarmos o tipo <a href="https://pt.wikipedia.org/wiki/Boolean" target="_blank">booleano</a>): numéricos e caracteres. Os númericos são divididos entre inteiros e <a href="https://pt.wikipedia.org/wiki/N%C3%BAmero_real" target="_blank">reais</a> (que possuem casas decimais). Os caracteres podem ser únicos ou vários formando uma string. A linguagem C divide essas duas categorias em cinco tipos de dados para usarmos em nosso códigos, segue abaixo quais são:
+
+<ul>
+    <li>char (caractere)</li>
+    <li>int (inteiro)</li>
+    <li>float (<a href="https://pt.wikipedia.org/wiki/V%C3%ADrgula_flutuante" target="_blank">ponto flutuante</a> de precisão simples)</li>
+    <li>double (ponto flutuante de dupla precisão)</li>
+    <li>void (um tipo que representa a ausência de tipos (vazio). Usado em funções que não possuem retorno e em ponteiros genéricos)</li>   
+</ul>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cada tipo de dado possui um tamanho em bytes que irá ocupar espaço na memória. Além de ocupar espaço, o tamanho implica no intervalo de valores que aquele tipo pode representar.</p>
+
+<h3 class="topico"><ul><li>Definição de variáveis</li></ul></h3>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sabemos o que são variáveis e quais tipos de dados a linguagem C nos fornece, então vamos ver como se define uma variável em um código-fonte. Para definir uma variável, a sintaxe segue a forma <b>tipo_de_dado identificador = valor</b>. Abaixo, há um exemplo de definição de uma variável do tipo <b>int</b>:</p>
+
+<code>
+    <pre class="codigo-c">
+        1   include &ltstdio.h&gt
+        2
+        3   int main(void) {
+        4
+        5       int x = 10;
+        6       printf("x = %d\n", x);
+        7
+        8       return 0;
+        9
+        10  }
+    </pre>
+</code>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;O int que antecede o identificador especifica que estamos criando uma variável inteira, <b>x</b> define o identificador da variável, <b>=</b> indica uma <a href="https://pt.wikipedia.org/wiki/Atribui%C3%A7%C3%A3o_(computa%C3%A7%C3%A3o)" target="_blank">atribuição</a> e <b>10</b> é o valor inteiro atribuído a x. Acrescentamos ao printf() mais alguns detalhes para imprimir o valor de x. Tudo o que estiver entre aspas <b>""</b> representa o que será escrito na tela, nesse caso, <b>x = 10</b>. <b>%d</b> é um especificador de formato da linguagem C e serve como um <a href="https://en.wikiversity.org/wiki/C_Programming/Input_and_Output" target="_blank">marcador de posição</a> onde o valor de uma variável inteira ou um valor literal inteiro deve aparecer na string'. <b>\n</b> é um dos vários <a href="https://pt.wikipedia.org/wiki/Caractere_de_escape" target="_blank">caracteres de escape</a> da linguagem C, que funcionam como caracteres de controle, mas não são caracteres gráficos, nesse caso, \n é uma <a href="https://en.wikipedia.org/wiki/Newline" target="_blank">quebra de linha</a>, para imprimir a mensagem e saltar o cursor para a próxima linha. Por último, fora das aspas e separado por vírgula está o identificador da variável (x), indicando que o especificador %d deve ser substituído por seu valor. Ao executar o programa, a saída que obtemos é a seguinte:</p>
+
+<img class="img-css" src="https://davikwiecien.github.io/imagens/tipos-de-dados-1.png" alt="1ª imagem" width="420px" height="280px">
+<br><br>
+<font size="2">Obs.: O especificador <b>%i</b> também pode ser utilizado para imprimir números inteiros.</font>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Definindo uma variável do tipo <b>char</b> (um caractere que suporta a codificação ASCII):</p>
+
+<code>
+    <pre class="codigo-c">
+        1   include &ltstdio.h&gt
+        2
+        3   int main(void) {
+        4
+        5       char x = 'a';
+        6       printf("x = %c\n", x);
+        7
+        8       return 0;
+        9
+        10  }
+    </pre>
+</code>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ao criarmos um variável que armazena um caractere, basta mudarmos a indicação do tipo de dado para char. A atribuição para um char também muda, um caractere deve ser escrito entre aspas simples <b>''</b>. O especificador do char é um <b>%c</b> e o identificador da variável deve correspondê-lo. Ao executar o programa, a saída que obtemos é a seguinte:</p>
+
+<img class="img-css" src="https://davikwiecien.github.io/imagens/tipos-de-dados-2.png" alt="2ª imagem" width="420px" height="280px">
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Definindo uma variável do tipo <b>float</b> (real de precisão simples):</p>
+
+<code>
+    <pre class="codigo-c">
+        1   include &ltstdio.h&gt
+        2
+        3   int main(void) {
+        4
+        5       float x = 10.5;
+        6       printf("x = %f\n", x);
+        7
+        8       return 0;
+        9
+        10  }
+    </pre>
+</code>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Usamos float para criarmos uma variável real de precisão simples (suporta com exatidão até 7 casas decimais). Na atribuição, um número inteiro ou com casas decimais deve ser fornecido (um ponto <b>.</b> deve separar a parte inteira da parte fracionária). Usamos um <b>%f</b> como especificador para uma variável do tipo float. Ao executar o programa, a saída que obtemos é a seguinte:</p>
+
+<img class="img-css" src="https://davikwiecien.github.io/imagens/tipos-de-dados-3.png" alt="3ª imagem" width="420px" height="280px">
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Definindo uma variável do tipo <b>double</b> (real de dupla precisão):</p>
+
+<code>
+    <pre class="codigo-c">
+        1   include &ltstdio.h&gt
+        2
+        3   int main(void) {
+        4
+        5       double x = 10.5;
+        6       printf("x = %lf\n", x);
+        7
+        8       return 0;
+        9
+        10  }
+    </pre>
+</code>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Não há muita diferença na definição de uma variável float para uma variável double (suporta com exatidão até 15 casas decimais). Especificamos o tipo de dado como double, mas a atribuição de um valor real continua igual. O especificador de formato para double é o <b>%lf</b>, mas %f ainda pode ser usado. Há uma diferença na leitura de dados reais, mas veremos isso mais adiante. Ao executar o programa, a saída que obtemos é a seguinte:</p>
+
+<img class="img-css" src="https://davikwiecien.github.io/imagens/tipos-de-dados-4.png" alt="4ª imagem" width="420px" height="280px">
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Por padrão, um número real é impresso com 6 casas decimais, mas podemos especificar quantas casas queremos com a seguinte sintaxe: <b>%.nf</b>, onde <b>n</b> representa o número de casas decimais. Eis um exemplo imprimindo um real com somente duas casas decimais:</p>
+
+<code>
+    <pre class="codigo-c">
+        1   include &ltstdio.h&gt
+        2
+        3   int main(void) {
+        4
+        5       float x = 10.5;
+        6       printf("x = %.2f\n", x);
+        7
+        8       return 0;
+        9
+        10  }
+    </pre>
+</code>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ao executar o programa, a saída que obtemos é a seguinte:</p>
+
+<img class="img-css" src="https://davikwiecien.github.io/imagens/tipos-de-dados-5.png" alt="5ª imagem" width="420px" height="280px">
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Os tipos de dados apresentados e seus respectivos especificadores de formato são os principais da linguagem C. Ainda temos o tipo <b>void</b>, mas esse tipo não pode ser usado com variáveis, somente com funções e ponteiros. Todos os tipos de dados vistos até aqui são conhecidos como tipos primitivos ou básicos.</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Podemos imprimir inúmeras variáveis de vários tipos de dados diferentes, utilizando variáveis ou valores literais. Abaixo, um exemplo de printf() imprimindo todos os tipos básicos de dados:</p>
+
+<code>
+    <pre class="codigo-c">
+        1   include &ltstdio.h&gt
+        2
+        3   int main(void) {
+        4
+        5       int x = 10, y = 5;
+        6       char c = 'b';
+        7       float f = 12.25;
+        8       double d = 19;
+        9
+        10      printf("\nx = %d\ny = %d\nc = %c\nf = %f\n%f\nd = %.4lf\n", x, y, c, f, 20.5, d);
+        11
+        12      return 0;
+        13
+        14  }
+    </pre>
+</code>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Na linha <b>3</b>, foram definidas duas variáveis em uma só linha, isso é possível separando cada identificador por vírgula e atribuindo valor para cada um. No printf() da linha <b>8</b>, foram impressas as cinco variáveis definidas e o valor literal <b>20.5</b>. A variável <b>d</b> foi inicializada com um valor inteiro, mas impresso com quatro casas decimais. Ao executar o programa, a saída que obtemos é a seguinte:</p>
+
+<img class="img-css" src="https://davikwiecien.github.io/imagens/tipos-de-dados-6.png" alt="6ª imagem" width="420px" height="280px">
+
+<h3 class="topico"><ul><li>Nomes de variáveis</li></ul></h3>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ao nome que damos a uma variável, o computador associa o endereço do espaço que foi reservado na memória para guardá-la. De modo geral, interessa ao programador saber o nome das variáveis. Porém, existem algumas regras para a escolha dos nomes das variáveis na linguagem C:</p>
+
+<ul>
+    <li>O nome de uma variável é um conjunto de caracteres que podem ser letras, números ou underscores <b>_</b>.</li>
+    <li>O nome de uma variável deve sempre iniciar com uma letra ou o underscore <b>_</b>.</li>
+    <li>letras maiúsculas e minúsculas são consideradas diferentes, isso é chamado de <a href="https://pt.wikipedia.org/wiki/Case-sensitive" target="_blank">Case-sensitive</a>. Por exemplo, as palavras <b>Soma</b>, <b>soma</b> e <b>SOMA</b> são consideradas diferentes e representam <b>três</b> variáveis distintas.</li>
+</ul>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A tabela a seguir apresenta alguns nomes possíveis de variáveis e outros que fogem às regras estabelecidas:</p>
+
+<center>
+<table width="800px" height="100px">
+    <tr>
+        <th colspan="8">Nomeando variáveis</th>
+    </tr>
+    <tr >
+        <td>comp!</td>
+        <td>.var</td>
+        <td>int!</td>
+        <td>1var</td>
+        <td>1cont</td>
+        <td>-x</td>
+        <td>Va-123</td>
+        <td><center><img src="https://davikwiecien.github.io/imagens/x-symbol.png" alt="X" width="50px" height="50px"></center></td>
+    </tr>
+    <tr>
+        <td>cont</td>
+        <td>Cont</td>
+        <td>Val_123</td>
+        <td>_teste</td>
+        <td>Int1</td>
+        <td>Cont1</td>
+        <td>X</td>
+        <td><center><img src="https://davikwiecien.github.io/imagens/check-symbol.png" alt="Check" width="50px" height="50px"></center></td>
+    </tr>
+</table>
+</center>
+
+<br>
+
+<font size="2">Obs.: Palavras-chave não podem ser usadas como nome de variáveis..</font>
+
+<h3 class="topico"><ul><li>Constantes</li></ul></h3>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Uma variável, como o próprio nome indica, pode <b>variar</b> seu valor. Portanto, podemos atribuir um determinado valor para uma variável e posteriormente no código alterarmos esse valor (não o tipo de dado, somente o valor). Abaixo, um exemplo alterando o valor de uma variável:</p>
+
+<code>
+    <pre class="codigo-c">
+        1   include &ltstdio.h&gt
+        2
+        3   int main(void) {
+        4
+        5       int x = 10;
+        6       printf("x = %d\n", x);
+        7
+        8       x = 20;
+        9       printf("x = %d\n", x);
+        10
+        11      return 0;
+        12
+        13  }
+    </pre>
+</code>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No código acima, a variável x foi definida com o valor <b>10</b> na linha <b>3</b> e foi redefinida para 20 na linha <b>6</b>. Ao executar o programa, a saída que obtemos é a seguinte:</p>
+
+<img class="img-css" src="https://davikwiecien.github.io/imagens/tipos-de-dados-7.png" alt="7ª imagem" width="420px" height="280px">
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Além das variáveis, existem as constantes, onde o valor não varia. Uma constante permite guardar determinado dado ou valor na memória do computador, mas com a certeza de que esse valor não irá se alterar durante a execução do programa. Para definirmos uma constante, utilizaremos a palavra-chave <b>const</b>. Abaixo, um exemplo definindo uma constante:</p>
+
+<code>
+    <pre class="codigo-c">
+        1   include &ltstdio.h&gt
+        2
+        3   int main(void) {
+        4
+        5       const int x = 10;
+        6       printf("x = %d\n", x);
+        7
+        8       return 0;
+        9
+        10  }
+    </pre>
+</code>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ao executar o programa, a saída que obtemos é a seguinte:</p>
+
+<img class="img-css" src="https://davikwiecien.github.io/imagens/tipos-de-dados-8.png" alt="8ª imagem" width="420px" height="280px">
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Se tentássemos redefinir o valor de uma constante, haveria um erro de compilação:</p>
+
+<code>
+    <pre class="codigo-c">
+        1   include &ltstdio.h&gt
+        2
+        3   int main(void) {
+        4
+        5       const int x = 10;
+        6       printf("x = %d\n", x);
+        7
+        8       x = 20;
+        9       printf("x = %d\n", x);
+        10
+        11      return 0;
+        12
+        13  }
+    </pre>
+</code>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ao executar o programa, a saída que obtemos é a seguinte:</p>
+
+<img class="img-css" src="https://davikwiecien.github.io/imagens/tipos-de-dados-9.png" alt="9ª imagem" width="420px" height="280px">
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A mensagem de erro acima nos informa que tentamos trocar o valor de uma constante (apenas leitura).</p>
+
+<font size="2">Obs.: Para constantes, é obrigatória a atribuição do valor no momento da definição.</font>
+
+<h3 class="topico"><ul><li>Lixo de memória</li></ul></h3>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E se não inicializarmos nossa variável? Qual valor será assumido? Bom, se não atribuirmos um valor para uma variável, a mesma será inicializada com o que chamamos de <b>lixo de memória</b>. Um lixo de memória é um valor arbitrário que se encontrava naquele espaço de memória antes da sua reserva para a nossa variável. Esse valor, que pode ser qualquer um, continua lá após o compilador reservar o espaço de memória, portanto, se a variável não for inicializada, esse valor indefinido será o seu conteúdo. Abaixo, um exemplo imprimindo o valor de uma variável não inicializada:</p>
+
+<code>
+    <pre class="codigo-c">
+        1   include &ltstdio.h&gt
+        2
+        3   int main(void) {
+        4
+        5       int x;
+        6       printf("x = %d\n", x);
+        7
+        8       return 0;
+        9
+        10  }
+    </pre>
+</code>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ao executar o programa, a saída que obtemos é a seguinte:</p>
+
+<img class="img-css" src="https://davikwiecien.github.io/imagens/tipos-de-dados-10.png" alt="10ª imagem" width="420px" height="280px">
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Perceba que um valor aleatório foi impresso, nesse caso, o valor <b>2203648</b>. Como não atribuímos um valor para a variável x, 2203648 se tornou seu conteúdo.</p>
+
+<h3 class="topico"><ul><li>Strings</li></ul></h3>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;O tipo de dado char permite que usemos um único caractere, mas também podemos ter um "conjunto" de char para formarmos uma string. Ainda usaremos o tipo char, porém vamos precisar definir um array unidimensional (também chamado de vetor) para criarmos uma cadeia de caracteres. Para definir um array de char, a sintaxe deve ser <b>char identificador[tamanho do array]</b>. Usamos colchetes <b>[]</b> para criar um array e definimos o tamanho (um número inteiro) para o mesmo. Exemplo:</p>
+
+<pre class="codigo-c" style="margin-left: 85px;">char array[5];<br></pre>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Acima, criamos um array de cinco posições. Cada char tem um byte, então o tamanho do nosso array é de 5 bytes. Assim como as variáveis, podemos inicializar nosso array com alguma informação:</p>
+
+<pre class="codigo-c" style="margin-left: 85px;">char array[10] = "String";<br></pre>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Além de criarmos nosso array, o inicializamos com a string <b>String</b> entre aspas duplas <b>""</b>. Agora, o tamanho do array foi definido como <b>10</b> bytes, porém apenas seis posições estão sendo ocupadas. No programa abaixo, definimos uma string e imprimimos seu conteúdo:</p>
+
+<code>
+    <pre class="codigo-c">
+        1   include &ltstdio.h&gt
+        2
+        3   int main(void) {
+        4
+        5       char array[10] = "String";
+        6       printf("array = %s\n", array);
+        7
+        8       return 0;
+        9
+        10  }
+    </pre>
+</code>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Para imprimir uma string em linguagem C, usamos o especificador de tipo <b>%s</b>.</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ao executar o programa, a saída que obtemos é a seguinte:</p>
+
+<img class="img-css" src="https://davikwiecien.github.io/imagens/tipos-de-dados-11.png" alt="11ª imagem" width="420px" height="280px">
+
+<h3 class="topico"><ul><li>Modificadores de tipo</li></ul></h3>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Além dos cinco tipos básicos, a linguagem C possui quatro modificadores de tipos. Esse modificadores são aplicados precedendo os tipos básicos (com exceção do tipo <b>void</b>), e permitem alterar o significado do tipo, de modo a adequá-lo às necessidades do programa. São eles:</p>
+
+<ul>
+    <li>signed</li>
+    <li>unsigned</li>
+    <li>short</li>
+    <li>long</li>
+</ul>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;O modificador <b>signed</b> determina que uma variável declarada dos tipos char e int poderá ter valores positivos ou negativos. Trata-se do <b>modo padrão</b> de definição de variáveis desses tipos e, por esse motivo, raramente é usado. Exemplo:<br></p>
+
+<pre class="codigo-c" style="margin-left: 85px;">signed char x;<br>signed int y;</pre>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;O modificador <b>unsigned</b> determina que uma variável declarada dos tipos char e int poderá ter valores positivos e o valor zero. Nesse caso, a variável perde seu <a href="https://pt.wikipedia.org/wiki/Bit_de_sinal" target="_blank">bit de sinal</a>, o que dobra a sua capacidade de armazenamento para valores positivos. Por exemplo, uma variável do tipo char é capaz de armazenar valores de -128 até 127. Se a mesma variável for declarada como sendo do tipo unsigned char, será capaz de armazenar valores de 0 até 255. A seguir, dois exemplos de uso:</p>
+
+<pre class="codigo-c" style="margin-left: 85px;">unsigned char x;<br>unsigned int y;</pre>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;O modificador <b>short</b> determina que uma variável do tipo int terá apenas 16 bits (inteiro pequeno), independentemente do processador. Exemplo:</p>
+
+<pre class="codigo-c" style="margin-left: 85px;">short int i;</pre>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;O modificador <b>long</b> faz o inverso do modificador short, ou seja, determina que uma variável do tipo int terá 32 bits (inteiro grande), independentemente do processador. Também determina que o tipo double possua maior precisão. Exemplo:</p>
+
+<pre class="codigo-c" style="margin-left: 85px;">long int n;<br>long double d;</pre>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A linguagem c permite que se use mais de um modificador de tipo sobre um mesmo tipo. Isso permite, por exemplo, declarar um inteiro grande (ou seja, com 32 bits) usando o modificador long e que também seja sem sinal com unsigned. Essa combinação permite aumentar em muito o intervalo de valores possíveis para aquela variável:</p>
+
+<pre class="codigo-c" style="margin-left: 85px;">unsigned long int m;</pre>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A tabela a seguir mostra todas as combinações permitidas dos tipos básicos e dos modificadores de tipo, o seu tamanho em bits e o seu intervalo de valores:</p>
+
+<center>
+<table width="800px" height="100px">
+    <tr>
+        <th>Tipo</th>
+        <th>Bits</th>
+        <th>Intervalo de valores</th>
+    </tr>
+    <tr>
+        <td>char</td>
+        <td>8</td>
+        <td>-128 a 127</td>
+    </tr>
+    <tr>
+        <td>unsigned char</td>
+        <td>8</td>
+        <td>0 a 255</td>
+    </tr>
+    <tr>
+        <td>signed char</td>
+        <td>8</td>
+        <td>-128 a 127</td>
+    </tr>
+    <tr>
+        <td>int</td>
+        <td>32</td>
+        <td>-2.147.483.648 a 2.147.483.647</td>
+    </tr>
+    <tr>
+        <td>unsigned int</td>
+        <td>32</td>
+        <td>0 a 4.294.967.295</td>
+    </tr>
+    <tr>
+        <td>signed int</td>
+        <td>32</td>
+        <td>-2.147.483.648 a 2.147.483.647</td>
+    </tr>
+    <tr>
+        <td>short int</td>
+        <td>16</td>
+        <td>-32.768 a 32.767</td>
+    </tr>
+    <tr>
+        <td>unsigned short int</td>
+        <td>16</td>
+        <td>0 a 65.535</td>
+    </tr>
+    <tr>
+        <td>signed short int</td>
+        <td>16</td>
+        <td>-32.768 a 32.767</td>
+    </tr>
+    <tr>
+        <td>long int</td>
+        <td>32</td>
+        <td>-2.147.483.648 a 2.147.483.647</td>
+    </tr>
+    <tr>
+        <td>unsigned long int</td>
+        <td>32</td>
+        <td>0 a 4.294.967.295</td>
+    </tr>
+    <tr>
+        <td>signed long int</td>
+        <td>32</td>
+        <td>-2.147.483.648 a 2.147.483.647</td>
+    </tr>
+    <tr>
+        <td>float</td>
+        <td>32</td>
+        <td>1,175494E-038 a 3,402823E+038</td>
+    </tr>
+    <tr>
+        <td>double</td>
+        <td>64</td>
+        <td>2,225074E-308 a 1,797693E+308</td>
+    </tr>
+    <tr>
+        <td>long double</td>
+        <td>96</td>
+        <td>3,4E-4932 a 3,4E+4932</td>
+    </tr>
+</table>
+</center>
+
+<br>
+
+</body>
+
+<script>
+    function mudarCSS(){
+        var tema = document.getElementsByTagName('link')[0];
+
+        if (tema.getAttribute('href') == '../estilos-claro.css') {
+                tema.setAttribute('href', '../estilos-escuro.css');
+        } else {
+            tema.setAttribute('href', '../estilos-claro.css');
+        }
+    }
+</script>
+
+</html>

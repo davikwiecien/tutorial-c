@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<meta charset="UTF-8">
+<html>
+
+<head>
+    <title>Ferramentas utilizadas</title>
+    <link id="tema" rel="stylesheet" type="text/css" href="../estilos-claro.css">
+</head>
+
+<body>
+
+<div class="nav">
+    <a class="botao" href="compilacao-interpretacao.html">Página anterior</a>
+        <div class="titulo">
+            <h1>Ferramentas Utilizadas</h1> 
+        </div>
+    <a class="botao" href="funcao-main.html">Próxima página</a>
+</div>
+
+<div id="botoes">
+      <button type="button" onclick="mudarCSS()">Mudar a cor da página</button>
+</div>
+
+<p style="margin-top: 100px;"><br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dada a introdução de linguagem em C e sobre os processos de compilação e interpretação, vemos a seguir quais ferramentas serão utilizadas para compilar e gerar programas em C.</p>
+
+<h3 class="topico"><ul><li>Editor de texto e IDE</li></ul></h3>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Para escrever códigos em linguagem C precisaremos utilizar algum editor de texto ou alguma <a href="https://pt.wikipedia.org/wiki/Ambiente_de_desenvolvimento_integrado" target="_blank">IDE (Integrated Development Enviroment)</a>. O editor de texto pode ser qualquer um, por exemplo, o <a href="https://pt.wikipedia.org/wiki/Bloco_de_Notas" target="_blank">Bloco de Notas</a> do <a href="https://pt.wikipedia.org/wiki/Microsoft_Windows" target="_blank">Microsoft Windows</a></a>, mas outras opções incluem o <a href="https://pt.wikipedia.org/wiki/Notepad%2B%2B" target="_blank">Notepad++</a>, <a href="https://pt.wikipedia.org/wiki/Sublime_Text" target="_blank">Sublime Text</a>, <a href="https://pt.wikipedia.org/wiki/Atom_(editor_de_texto)" target="_blank">Atom</a>, <a href="https://en.wikipedia.org/wiki/Brackets_(text_editor)" target="_blank">Brackets</a> e qualquer outro editor de texto da preferência do programador. Uma IDE é um ambiente de desenvolvimento integrado que assim como um editor de texto, nos permite escrever códigos-fonte, porém vem com mais funcionalidades, como um <a href="https://pt.wikipedia.org/wiki/Depurador" target="_blank">depurador</a> de código e análises mais precisas acerca da sintaxe do código-fonte. Basicamente, uma IDE facilita o processo de desenvolvimento, pois conseguimos escrever códigos por lá e, se tiver um compilador configurado corretamente, já compilamos e executamos o código pela própria IDE. Para linguagem C, algumas opções de IDE's incluem, por exemplo, o <a href="https://pt.wikipedia.org/wiki/Code::Blocks" target="_blank">Code::Blocks</a>, <a href="https://pt.wikipedia.org/wiki/Dev-C%2B%2B" target="_blank">DEV-C++</a> e o <a href="https://pt.wikipedia.org/wiki/Visual_Studio_Code" target="_blank">Visual Studio Code</a>. Ao longo deste curso, iremos utilizar o editor padrão que já vem instalado no sistema: o Bloco de Notas do Windows ou o <a href="https://pt.wikipedia.org/wiki/Gedit" target="_blank">gedit</a> (ou outro) de sistemas <a href="https://pt.wikipedia.org/wiki/Linux" target="_blank">Linux</a>.</p>
+
+<h3 class="topico"><ul><li>Compilador GCC</li></ul></h3>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Agora que já temos conhecimento do que é um compilador é necessário sabermos como utilizá-lo para compilarmos nossos códigos em linguagem C. Há vários compiladores disponíveis para C, entre eles, estão os mais conhecidos <a href="https://pt.wikipedia.org/wiki/GNU_Compiler_Collection" target="_blank">GCC</a>, <a href="https://pt.wikipedia.org/wiki/Clang" target="_blank">Clang</a>, <a href="https://pt.wikipedia.org/wiki/Turbo_C" target="_blank">Turbo C</a> e o <a href="https://pt.wikipedia.org/wiki/Microsoft_Visual_C%2B%2B" target="_blank">MSVC</a>. Nós iremos o utilizar o GCC, um dos mais utilizados compiladores de C no mercado. O GCC é, na verdade, um conjunto de compiladores desenvolvido pelo <a href="https://pt.wikipedia.org/wiki/Projeto_GNU" target="_blank">Projeto GNU</a> para diversas linguagens de programação, incluindo a linguagem C. Sendo assim, quando nos referirmos ao GCC, estamos falando do compilador para linguagem C do projeto GNU. </p>
+
+<h3 class="topico"><ul><li>Instalando o GCC (MinGW) no Windows</li></ul></h3>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;O MinGW é uma versão minimalista do conjunto de ferramentas GNU portada para sistemas Windows, incluindo o compilador para linguagem C. O download do MinGW pode ser encontrado <a href="https://sourceforge.net/projects/mingw/" target="_blank">aqui</a>. Assim que o download for feito, basta executar o instalador do MinGW.</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Na janela que se abrir, basta selecionar <b>Install</b>.</p>
+
+<img class="img-css" src="https://davikwiecien.github.io/imagens/1.png" alt="1ª imagem" width="430px" height="340px">
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Na próxima janela, pode-se deixar o drive C: como diretório de instalação e selecionar <b>Continue</b>.</p>
+
+<img class="img-css" src="https://davikwiecien.github.io/imagens/2.png" alt="1ª imagem" width="430px" height="300px">
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Na próxima janela, basta esperar o download e a configuração do gerenciador de instalação do MinGW e selecionar <b>Continue</b>.</p>
+
+<img class="img-css" src="https://davikwiecien.github.io/imagens/3.png" alt="2ª imagem" width="430px" height="300px">
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No gerenciador de instalação, as opções <b>mingw32-base</b> e <b>mingw32-gcc-g++</b> já vem selecionadas, agora basta clicar com o botão direito em cima da primeira opção <b>mingw-developer-tool...</b> e selecionar <b>Mark for Installation</b>.</p>
+
+<img class="img-css" src="https://davikwiecien.github.io/imagens/4.png" alt="3ª imagem" width="700px" height="390px">
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Após selecionar o primeiro pacote, basta clicar em <b>Installation</b> e <b>Apply Changes</b>.</p>
+
+<img class="img-css" src="https://davikwiecien.github.io/imagens/5.png" alt="5ª imagem" width="700px" height="390px">
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Na janela que se abrir, basta selecionar <b>Apply</b> e aguardar a instalação dos pacotes.</p>
+
+<img class="img-css" src="https://davikwiecien.github.io/imagens/6.png" alt="6ª imagem" width="700px" height="390px">
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Assim que terminar, basta selecionar <b>Close</b> e fechar a janela do gerenciador de instalação.</p>
+
+<img class="img-css" src="https://davikwiecien.github.io/imagens/7.png" alt="7ª imagem" width="700px" height="390px">
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Uma vez instalado o MinGW é preciso verificar se podemos utilizar o GCC para compilar programas em C. Para isso, abriremos o prompt de comando do Windows pressionando as teclas <b>Windows + r</b> e digitando <b>cmd</b>.</p>
+
+<img class="img-css" src="https://davikwiecien.github.io/imagens/8.png" alt="8ª imagem" width="350px" height="180px">
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No prompt, digitaremos o comando <b>gcc --version</b> para verificarmos se o gcc está devidamente instalado. Percebe-se que o compilador não foi encontrado, apesar de termos instalado. Isso acontece porque o caminho onde se encontram os binários do MinGW não está na <a href="https://pt.wikipedia.org/wiki/Vari%C3%A1vel_de_ambiente" target="_blank">variável de ambiente</a> <a href="https://en.wikipedia.org/wiki/PATH_(variable)" target="_blank">PATH</a> do sistema operacional. Isso é necessário para que o o gcc possa ser executado de qualquer diretório do sistema, não somente no diretório corrente de instalação.</p>
+
+<img class="img-css" src="https://davikwiecien.github.io/imagens/9.png" alt="9ª imagem" width="460px" height="240px">
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Precisamos adicionar o caminho do MinGW na variável PATH, para isso, digitaremos <b>var</b> na pesquisa do Windows para configurarmos as variáveis de ambiente do sistema.</b>.</p>
+
+<img class="img-css" src="https://davikwiecien.github.io/imagens/10.png" alt="10ª imagem" width="500px" height="370px">
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nas propriedades do sistema, selecionaremos <b>Variáveis de ambiente...</b>.</p>
+
+<img class="img-css" src="https://davikwiecien.github.io/imagens/11.png" alt="11ª imagem" width="300px" height="400px">
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Na janela de configuração das variáveis de ambiente é preciso clicar na variável <b>Path</b> em <b>Variáveis do sistema</b> e selecionar <b>Editar...</b>.</p>
+
+<img class="img-css" src="https://davikwiecien.github.io/imagens/12.png" alt="12ª imagem" width="500px" height="420px">
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Agora, temos que adicionar o caminho onde se encontram os binários do MinGW. Abrindo o Gerenciador de Arquivos, iremos localizar o diretório <b>C:\MinGW\bin</b> e copiar o seu caminho.</p>
+
+<img class="img-css" src="https://davikwiecien.github.io/imagens/13.png" alt="13ª imagem" width="680px" height="410px">
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Copiado todo o caminho, basta voltar na janela de edição da variável PATH para adicioná-lo clicando em <b>Novo</b> e colando-o. Feito isso, basta selecionar <b>Ok</b>.</p>
+
+<img class="img-css" src="https://davikwiecien.github.io/imagens/14.png" alt="14ª imagem" width="340px" height="350px">
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Voltando ao prompt (se estava aberto, é preciso fechá-lo e abri-lo novamente) e digitando novamente o comando <b>gcc --version</b>, percebemos que agora o gcc foi encontrado e está pronto para compilar nosso programas.</p>
+
+<img class="img-css" src="https://davikwiecien.github.io/imagens/15.png" alt="15ª imagem" width="460px" height="240px">
+
+<h3 class="topico"><ul><li>Instalando o GCC no Linux (Ubuntu)</li></ul></h3>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No Linux, basta instalar o pacote <b>build-essential</b> para obtermos o compilador GCC. Para isso, abriremos o terminal do Linux com <b>ctrl + alt + t</b> e executaremos o comando <b>sudo apt install build-essential</b>.</p>
+
+<img class="img-css" src="https://davikwiecien.github.io/imagens/t1.png" alt="1º terminal do Ubuntu" width="460px" height="320px">
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Em seguida, basta confirmar a instalação com <b>s</b>.</p>
+
+<img class="img-css" src="https://davikwiecien.github.io/imagens/t2.png" alt="2º terminal do Ubuntu" width="460px" height="320px">
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Assim que finalizar a instalação, podemos verificar se o GCC pode ser encontrado com <b>gcc --version</b>. No Linux, é necessário apenas seguir esses passos para instalar o compilador GCC.</p>
+
+<img class="img-css" src="https://davikwiecien.github.io/imagens/t3.png" alt="3º terminal do Ubuntu" width="460px" height="320px">
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A partir de agora, com um editor de texto e um compilador instalado, podemos escrever nossos códigos-fonte em linguagem C.</p>
+
+</body>
+<script>
+    function mudarCSS(){
+        var tema = document.getElementsByTagName('link')[0];
+
+        if (tema.getAttribute('href') == '../estilos-claro.css') {
+                tema.setAttribute('href', '../estilos-escuro.css');
+        } else {
+            tema.setAttribute('href', '../estilos-claro.css');
+        }
+    }
+</script>
+</html>
+

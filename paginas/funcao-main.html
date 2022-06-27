@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+
+<meta charset="UTF-8">
+<html>
+
+<head>
+    <title>Função main() e estrutura de um programa em C</title>
+    <link id="tema" rel="stylesheet" type="text/css" href="../estilos-claro.css">
+</head>
+
+<body>
+
+<div class="nav">
+    <a class="botao" href="ferramentas-utilizadas.html">Página anterior</a>
+        <div class="titulo">
+            <h1>Função main() e estrutura básica de um programa em C</h1> 
+        </div>
+    <a class="botao" href="biblioteca-arquivos.html">Próxima página</a>
+</div>
+
+<div id="botoes">
+      <button type="button" onclick="mudarCSS()">Mudar a cor da página</button>
+</div>
+
+<h3 class="topico" style="margin-top: 100px;"><ul><li>Estrutura de um programa em C</li></ul></h3>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Agora que já sabemos alguns conceitos básicos e temos um editor de texto e um compilador configurado, vamos entender a estrutura básica de um programa em linguagem C (você pode digitar o mesmo código abaixo no editor de texto de sua preferência):</p>
+
+<code>
+    <pre class="codigo-c">
+        1   int main(void) {
+        2
+        3       return 0;
+        4
+        5   }
+    </pre>
+</code>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;À primeira vista pode parecer não fazer sentido, mas vamos destrinchar cada componente da tela para entendermos melhor. Na linha <b>1</b>, <b>int main(void)</b> refere-se à função principal do programa: a função main(). Veremos melhor sobre o que se trata uma <a href="https://pt.wikipedia.org/wiki/M%C3%A9todo_(programa%C3%A7%C3%A3o)" target="_blank">função</a> em outro momento deste tutorial, mas basicamente, a função main() é o "ponto de partida" de um programa em C, ou seja, onde o programa inicia sua execução. Traduzindo para o português, main significa <b>principal</b>. A função main() é a primeira função a ser executada quando um executável em C é gerado, chamada por <a href="https://stackoverflow.com/questions/17898989/what-is-global-start-in-assembly-language" target="_blank">rotinas de inicialização</a> do sistema operacional ao executar o programa. A palavra <b>int</b> que antecede a assinatura da função indica que essa função retorna um valor <a href="https://pt.wikipedia.org/wiki/N%C3%BAmero_inteiro" target="_blank">inteiro</a> para quem a chamou. Uma função pode ou não retornar um valor, veremos isso mais adiante quando falarmos de funções. O <b>void</b> entre parênteses indica explicitamente que a função main() não possui <a href="https://pt.wikipedia.org/wiki/Par%C3%A2metro_(ci%C3%AAncia_da_computa%C3%A7%C3%A3o)" target="_blank">parâmetros</a> e não recebe argumentos para tais parâmetros, mas muitas vezes encontramos códigos com parênteses vazios <b>()</b> indicando que a função pode receber nenhum ou vários argumentos. Iremos ver com mais detalhes sobre declaração de função, parâmetros e argumentos posteriormente. Ainda na linha <b>1</b>, percebemos a presença de uma chave aberta <b>{</b> após a assinatura da função main, indicando o início do bloco de código da função e, já pulando para a linha <b>5</b>, a chave fechada <b>}</b> indica que estamos finalizando aquele bloco de código. Na linha <b>3</b>, a instrução <b>return 0;</b> se refere à uma instrução de <a href="https://en.wikipedia.org/wiki/Return_statement" target="_blank">retorno</a>, mais precisamente que estamos retornando o valor inteiro <b>0</b> à quem chamou a função main(): o sistema operacional. Como declaramos a função main() retornando um valor inteiro, devemos especificar um valor de retorno (precisa ser inteiro) ao término de seu código-fonte. O valor 0 é uma convenção para informarmos ao sistema operacional que o fluxo do programa chegou naquele ponto e, consequentemente, que executou todo o código de maneira correta, portanto, pode encerrar a execução do programa com um status de saída bem-sucedido.
+</p>
+
+<font size="2">Obs.: Praticamente todas a instruções em linguagem C precisam terminar com ponto e vírgula <b>;</b> para indicar, justamente, o término do código daquela instrução.</font>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;O código-fonte acima não faz nada de especial, não recebe nenhuma entrada para fazer algum processamento e gerar uma saída (veja <a href="https://pt.wikipedia.org/wiki/Entrada/sa%C3%ADda" target="_blank">entrada/saída</a> e <a href="https://pt.wikipedia.org/wiki/Processamento_de_dados" target="_blank">processamento de dados</a>), apenas demonstra o esqueleto básico de um programa em C. Podemos imprimir uma mensagem no dispositivo de saída do usuário com o seguinte programa:</p>    
+
+<code>
+    <pre class="codigo-c">
+        1   include &ltstdio.h&gt
+        2
+        3   int main(void) {
+        4
+        5       printf("Hello, World!");
+        6       return 0;
+        7
+        8   }
+    </pre>
+</code>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Agora o código está levemente modificado, na linha <b>1</b> temos a inclusão de um <a href="https://pt.wikipedia.org/wiki/Arquivo_de_cabe%C3%A7alho" target="_blank">arquivo de cabeçalho</a>, mais precisamente o arquivo que contém declarações de funções de entrada/saída de informações: <a href="https://pt.wikipedia.org/wiki/Stdio.h" target="_blank">stdio.h</a>. Só nesta linha podemos observar três conceitos essenciais em programação em C: arquivos de cabeçalho, bibliotecas e diretivas de <a href="https://pt.wikipedia.org/wiki/Pr%C3%A9-processador" target="_blank">pré-processamento</a>. Os dois primeiros iremos ver em outro momento e o último conceito nem vamos abordar nesse tutorial básico, pois não se trata de algo muito trivial e requer conhecimento um pouco mais avançado para entendê-lo.</p>
+
+<font size="2">Obs.: Arquivos de cabeçalho possuem extensão <b>.h</b>.</font>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Na linha <b>5</b> estamos fazendo uma chamada a função <b>printf()</b>, cuja declaração está contida no arquivo de cabeçalho stdio.h incluso na primeira linha. Essa é uma função de saída de dados da linguagem C e serve, basicamente, para impressão de informações na tela do usuário. Sua forma geral corresponde:</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>int printf(const char *format, ...)</b></p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf vem de <b>print formatted</b> (imprimir formatado) e quer dizer literalmente isso, imprimir uma mensagem formatada na tela. Na assinatura da função, observamos que um valor inteiro é retornado (o número de caracteres escritos) e há parâmetros definidos: o primeiro <b>const char *format</b> se trata de um <a href="https://pt.wikipedia.org/wiki/Ponteiro_(programa%C3%A7%C3%A3o)" target="_blank">ponteiro</a> para uma <a href="https://pt.wikipedia.org/wiki/Cadeia_de_caracteres" target="_blank">string</a> <a href="https://pt.wikipedia.org/wiki/Constante_(programa%C3%A7%C3%A3o)" target="_blank">constante</a> de nome <b>format</b> que pode receber uma string com ou sem especificadores de tipo e o segundo <b>...</b> indica que inúmeras <a href="https://pt.wikipedia.org/wiki/Vari%C3%A1vel_(programa%C3%A7%C3%A3o)" target="_blank">variáveis</a> e/ou <a href="https://pt.wikipedia.org/wiki/Tipo_de_dado" target="_blank">tipos de dados</a> podem corresponder aos especificadores de tipo informados na string.</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Não entraremos em muitos detalhes agora, só precisamos entender que aquela função printf() irá mostrar uma mensagem de texto ao usuário: a mensagem <b>Hello, World!</b></p>
+
+<font size="2">Obs.: "Hello, world" é uma convenção para um primeiro código executado quando um programador está iniciando seus estudos em alguma linguagem de programação, de modo a verificar se o ambiente de programação está configurado corretamente e se a tarefa básica de saída de dados está sendo executada.</font>
+
+<h3 class="topico"><ul><li>Indentação de código</li></ul></h3>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pode-se perceber que as instruções <b>printf("Hello, World!");</b> e <b>return 0;</b> estão com um certo espaçamento à direita em relação ao resto do código, isso se chama <a href="https://pt.wikipedia.org/wiki/Indenta%C3%A7%C3%A3o" target="_blank">indentação</a>. A indentação sugere uma certa hierarquia entre os elementos do programa, no nosso exemplo, indica que as instruções indentadas estão subordinadas ao bloco de código da função main(), que representa o bloco principal. Se houvesse mais blocos dentro da main(), outras identações apareceriam para estruturar as instruções dentro de cada um dos blocos. A indentação não é obrigatória, o programa poderia ser escrito da seguinte forma:</p>
+
+<code>
+    <pre class="codigo-c">
+        1   include &ltstdio.h&gt
+        2
+        3   int main(void) {
+        4
+        5   printf("Hello, World!");
+        6   return 0;
+        7
+        8   }
+    </pre>
+</code>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;porém, nota-se que a legibilidade fica prejudicada e não fica transparente a quem for ler o código que as instruções possuem níveis conceituais diferentes. Portanto, adota-se a indentação como um consenso e, principalmente, como um padrão de projeto para estruturar um programa em uma linguagem de programação.</p>
+
+<h3 class="topico"><ul><li>Compilando um programa em C</li></ul></h3>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Uma vez criado o código fonte, podemos compilá-lo para gerar um executável que irá representar aquele código-fonte como um programa de computador em linguagem de máquina. Antes, precisamos salvar o código-fonte como um arquivo com extensão <b>.c</b> (de linguagem C), por exemplo, podemos salvar como <b>hello_world.c</b>. Para compilar, abriremos o prompt do Windows ou o terminal do Linux e entraremos no diretório onde o código-fonte foi salvo com o comando <b>cd</b>:</p>
+
+<img class="img-css" src="https://davikwiecien.github.io/imagens/hello-1.png" alt="1ª imagem" width="420px" height="280px">
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No diretório, compilaremos o código-fonte usando o GCC com comando abaixo:</p>
+
+<img class="img-css" src="https://davikwiecien.github.io/imagens/hello-2.png" alt="2ª imagem" width="420px" height="280px"><br><br>
+
+<font size="2">Obs.: <b>-o</b> indica como será chamado o <b>output</b> (saída compilada) do programa hello_world.c: <b>hello_world</b>.</font>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Se não aparecer nenhuma mensagem (por exemplo, um aviso de erro de sintaxe) significa que o programa foi compilado corretamente. Para executá-lo, basta chamar o executável gerando com o comando abaixo: </p>
+
+<img class="img-css" src="https://davikwiecien.github.io/imagens/hello-3.png" alt="3ª imagem" width="420px" height="280px"><br><br>
+
+<font size="2">Obs.: Ao gerar um executável, não é preciso especificar a extensão <b>.exe</b> em seu nome, pois o próprio compilador (ou o linker) irá chamá-lo assim.</font>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Se a mensagem <b>Hello, World!</b> foi impressa como na imagem acima, significa que a compilação deu certo e, desse modo, criamos nosso primeiro programa em linguagem C.</p>
+
+<font size="2">Obs.: Para compilar no Linux, a única alteração a ser feita é na hora de executar o programa: ao invés de hello_world.exe, o comando deve ser <b>./hello_world</b>.</font>
+
+<h3 class="topico"><ul><li>Comentários</li></ul></h3>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Além de codificarmos nossas instruções no código-fonte, podemos incluir comentários que documentam as partes do código. Podem ser colocados em qualquer lugar, uma vez que os comentários não são compilados e não implicam na execução do programa, apenas servem para explicar o que está sendo feito naquele escopo do código. Há duas formas de fazer comentários: <b>comentário de uma única linha</b> e <b>comentário de várias linhas</b>. Abaixo, um exemplo de comentário de uma única linha:</p>
+
+<code>
+    <pre class="codigo-c">
+        1   include &ltstdio.h&gt
+        2
+        3   int main(void) {
+        4
+        5       // A instrução abaixo imprime uma mensagem na tela
+        6       printf("Hello, World!");
+        7       return 0;
+        8
+        9   }
+    </pre>
+</code>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Comentários de uma única linha são feitos com barra dupla <b>//</b> e só comentam aquela linha em específico, no nosso caso, a linha <b>5</b>. Abaixo um exemplo de comentário de várias linhas:</p>
+
+<code>
+    <pre class="codigo-c">
+        1   include &ltstdio.h&gt
+        2
+        3   int main(void) {
+        4
+        5       /* A instrução abaixo
+        6       imprime uma
+        7       mensagem na tela */
+        8       printf("Hello, World!");
+        9       return 0;
+        10
+        11  }
+    </pre>
+</code>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Comentários de várias linhas são iniciados com barra e asterisco <b>/*</b> e finalizados com asterisco e barra <b>*/</b> e comentam todas as linhas presentes entre esses dois marcadores, no nosso caso, da linha <b>5</b> até a linha <b>7</b>.</p>    
+
+</body>
+
+<script>
+    function mudarCSS(){
+        var tema = document.getElementsByTagName('link')[0];
+
+        if (tema.getAttribute('href') == '../estilos-claro.css') {
+                tema.setAttribute('href', '../estilos-escuro.css');
+        } else {
+            tema.setAttribute('href', '../estilos-claro.css');
+        }
+    }
+</script>
+
+</html>
+
+
+
+
+
+
+
+
+

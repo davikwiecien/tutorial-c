@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&family=Work+Sans:ital@1&display=swap');
+
+body {
+	background-color: rgb(232, 249, 253);	
+	margin: 0;
+}
+
+.sidenav {
+	display: flex;
+	flex-flow: row wrap;
+	display: inline;
+	height: 100%;
+	width: 300px;
+	position: fixed;
+	font-size: 30px;
+	top: 0;
+	left: 0;
+	background-color: rgb(10, 161, 221);
+	overflow-x: hidden;
+}
+
+.sidenav a {
+	color: white;
+	padding: 16px;
+	text-decoration: none;
+	display: block;
+	font-weight: normal;
+	font-family: 'Work Sans', sans-serif;
+}
+
+.sidenav a:hover {	
+	background-color: rgb(121, 218, 232);
+	color: black;
+}	
+
+.nav-index {
+	display: block;
+	background-image: linear-gradient(180deg, rgb(10, 161, 221), rgb(33, 85, 205));
+	height: 200px;
+	width: 100%;
+	top: 0;
+	position: fixed;
+}
+
+.nav-index h1 {
+	margin-left: 700px;	
+	font-size: 85px;
+	font-family: 'Staatliches', cursive;
+	color: rgb(232, 249, 253);
+}
+
+.logo img {
+	margin-top: 200px;
+	margin-left: 750px; 
+	height: 900px; 
+	width: 900px;
+	position: relative; 
+}
+
+.logo img:hover {
+	opacity: 0.9;
+}
+
+.nav {
+	top: 0;
+	display: flex;
+	height: 75px;
+	width: 100%;
+	position: fixed;
+	background-image: linear-gradient(180deg, rgb(10, 161, 221), rgb(33, 85, 205));
+}
+
+.nav h1 {
+	text-align: center;
+	font-family: 'Staatliches', cursive;
+	color: rgb(232, 249, 253);
+}
+
+.botao {	
+	display: flex;
+	align-items: center;
+	padding: 0 0 0 30px;
+	flex: 10%;
+	height: 75px;
+	background: rgb(121, 218, 232);
+	font-family: 'Staatliches', cursive;
+	text-decoration: none;
+	color: rgb(33, 85, 205);
+}
+
+.botao:hover {
+	background-image: linear-gradient(180deg, rgb(10, 161, 221), rgb(33, 85, 205));
+	color: rgb(232, 249, 253);
+}
+
+.titulo {
+	flex: 90%;
+}
+
+
+#table1, #table1 tr, #table1 td, #table2, #table2 tr, #table2 td {
+	border: none;
+	background-color: rgb(232, 249, 253);
+}
+
+#table1 ul, #table2 ul {
+	background: rgb(232, 249, 253);
+}
+
+#table2 li {
+	margin-left: 70px;
+}
+
+#table1 img, #table2 img {
+	border: 4px solid rgb(33, 85, 205);
+	border-radius: 10px; 
+	width: 420px;
+	heigh: 290px;
+}
+
+#table1 img {
+	margin-left: 30px;
+}
+
+.topico {
+	text-transform: uppercase;
+	font-family: 'Staatliches', cursive;
+	letter-spacing: 4;
+	font-weight: normal;
+	font-size: 25px;
+	color: rgb(33, 85, 205);
+}
+
+.topico li {
+	color: rgb(0, 168, 204);
+}
+
+ul, ol {
+	background: rgb(213, 247, 253);
+}
+
+p, li {
+	font-family: 'Work Sans', sans-serif;
+	margin-left: 20px;
+	margin-right: 20px;
+	text-align: justify;
+}
+
+font {
+	font-family: 'Work Sans', sans-serif;
+	font-weight: bold;
+	margin-left: 20px;
+}
+
+.img-css {
+	border: 4px solid rgb(33, 85, 205);
+	border-radius: 10px;
+	margin-left: 78px;
+}
+
+pre {
+	background: rgb(213, 247, 253);
+	margin-left: 15px;
+	color: rgb(33, 85, 205);
+	font-family: "Courier New";
+}
+
+table {
+	border: 4px solid rgb(33, 85, 205);
+	background-color: rgb(121, 218, 232);
+	border-collapse: collapse;
+}
+
+table td, table th {
+	border: 2px solid rgb(33, 85, 205);
+	font-family: 'Work Sans', sans-serif;
+	padding: 5px 10px;
+}
+
+table th {
+	background-color: rgb(33, 85, 205);
+	color: rgb(232, 249, 253);
+}
+
+table tr:nth-child(odd) {
+	background: rgb(170, 225, 234);
+}
+
+.codes {
+	display: flex;
+}
+
+.codes div {
+	flex: 10%;
+}
+
+.img-codes img {
+	border: 4px solid rgb(33, 85, 205);
+	border-radius: 10px;
+}
+
+form {
+	margin-left: 50px;
+	font-family: 'Work Sans', sans-serif;
+}
+
+.gabarito {
+	color: rgb(1, 69, 17); 
+	margin-left: 50px;
+}
+
+#botoes {
+	display: flex;
+	flex: flex-end;
+}
+
+#botoes {
+    margin-right: 12px;
+    float: right;
+}
+
+#botoes button {
+    background: rgb(33, 85, 205);
+    padding: 5px;
+    color: rgb(232, 249, 253);
+    border-radius: 10px;
+}
+
+
+

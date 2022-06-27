@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+
+<meta charset="UTF-8">
+<html>
+
+<head>
+    <title>Impressão e leitura de informações</title>
+    <link id="tema" rel="stylesheet" type="text/css" href="../estilos-claro.css">
+</head>
+
+<body>
+
+<div class="nav">
+    <a class="botao" href="variaveis-tipos-de-dados-modificadores-keywords.html">Página anterior</a>
+        <div class="titulo">
+            <h1>Impressão e leitura de informações</h1> 
+        </div>
+    <a class="botao" href="principais-operadores.html">Próxima página</a>
+</div>
+
+<div id="botoes">
+      <button type="button" onclick="mudarCSS()">Mudar a cor da página</button>
+</div>
+
+<h3 class="topico" style="margin-top: 100px;"><ul><li>printf() e putchar()</li></ul></h3>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nós vimos uma forma de imprimir dados na tela do usuário utilizando a função printf(), e vimos que essa função recebe dois argumentos de entrada:</p>
+
+<ul>
+    <li><b>tipos de saída</b>: conjunto de caracteres que especifica o formato dos dados a serem escritos e/ou o texto a ser escrito.</li>
+    <li><b>lista de variáveis</b>: conjunto de nomes de variáveis, separados por vírgula, que serão escritos.</li>
+</ul>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Forma básica da função printf(): <b>printf("%tipo_de_saída", lista_de_variáveis)</b>. Vimos também que quando queremos escrever dados formatados na tela, usamos a forma geral da função, a qual possui os <b>tipos de saída</b> ou <b>especificadores de tipo</b>. Esses tipos especificam o formato de saída dos dados escritos pela função printf(). Cada tipo de saída é precedido por um sinal de <b>%</b>, e um tipo de saída deve ser especificado para cada variável a ser escrita. A função printf() pode ser usada para escrever praticamente qualquer tipo de dado. A tabela a seguir mostra alguns dos tipos suportados pela linguagem:</p>
+
+<center>
+<table width="800px" height="100px">
+    <tr>
+        <th colspan="2">Alguns tipos de saída</th>
+    </tr>
+    <tr>
+        <td>%c</td>
+        <td>escrita de um caractere (char)</td>
+    </tr>
+    <tr>
+        <td>%d ou %i</td>
+        <td>escrita de números inteiros (int ou char)</td>
+    </tr>
+    <tr>
+        <td>%u</td>
+        <td>escrita de números inteiros sem sinal (unsigned)</td>
+    </tr>
+    <tr>
+        <td>%f</td>
+        <td>escrita de números reais (float ou double)</td>
+    </tr>
+    <tr>
+        <td>%s</td>
+        <td>escrita de vários caracteres (string)</td>
+    </tr>
+    <tr>
+        <td>%p</td>
+        <td>escrita de um endereço de memória</td>
+    </tr>
+    <tr>
+        <td>%e ou %E</td>
+        <td>escrita em notação científica</td>
+    </tr>
+</table>
+</center>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A função printf() aceita textos junto aos tipos de saída. Pode-se adicionar texto antes, depois ou entre dois ou mais tipos de saída:</p>
+
+<code>
+    <pre class="codigo-c">
+        1   include &ltstdio.h&gt
+        2
+        3   int main(void) {
+        4
+        5       int x = 10;
+        6       printf("Total = %d\n", x);
+        7       printf("%d caixas\n", x);
+        8       printf("Total de %d caixas\n", x);
+        9
+        10      return 0;
+        11
+        12  }
+    </pre>
+</code>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ao executar o programa, a saída que obtemos é a seguinte:</p>
+
+<img class="img-css" src="https://davikwiecien.github.io/imagens/entrada-saida-1.png" alt="1ª imagem" width="420px" height="280px">
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Isso permite que o comando printf() seja usado para escrever não apenas dados, mas sentenças que façam sentido para o usuário do programa.</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Além de usarmos função printf(), podemos escrever dados na tela com a função <b>putchar()</b> (put character), que permite escrever um único caractere na tela. Sua forma geral corresponde:</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>int putchar(int char)</b></p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A função putchar() recebe como argumento de entrada um único valor inteiro. Esse valor será convertido em caractere e mostrado na tela. A função retorna:</p>
+
+<ul>
+    <li>Se não ocorrer erro: o próprio caractere que foi escrito.</li>
+    <li>Se ocorrer erro: a constante <b>EOF</b> (definida no cabeçalho stdio.h) é retornada.</li>
+</ul>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Abaixo, alguns exemplos demonstrando a função putchar():</p>
+
+<code>
+    <pre class="codigo-c">
+        1   include &ltstdio.h&gt
+        2
+        3   int main(void) {
+        4
+        5       char c = 'a';
+        6       int x = 65;
+        7       putchar(c); // Escreve o caractere 'a'
+        8       putchar('\n'); // Muda de linha
+        9       putchar(x); // Escreve o valor 65 como caractere
+        10      putchar('\n'); // Muda de linha
+        11
+        12      return 0;
+        13
+        14  }
+    </pre>
+</code>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Perceba, no exemplo anterior, que a conversão na linguagem C é direta no momento da impressão, ou seja, o valor 65 é convertido no caractere ASCII correspondente, no caso, o caractere "a". Além disso, o comando putchar() também aceita o uso de sequência de escape, como o caractere "\n" (nova linha).</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ao executar o programa, a saída que obtemos é a seguinte:</p>
+
+<img class="img-css" src="https://davikwiecien.github.io/imagens/entrada-saida-2.png" alt="2ª imagem" width="420px" height="280px">
+
+<h3 class="topico"><ul><li>scanf() e getchar()</li></ul></h3>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A função <b>scanf()</b> é uma das funções de entrada/leitura de dados da linguagem C. Seu nome vem da expressão em inglês <b>scan formatted</b> (leitura formatada). Basicamente, a função scanf() lê do teclado um conjunto de valores, caracteres e/ou sequência de caracteres conforme o formato especificado. Sua forma geral corresponde:</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>int scanf(const char *format, ...)</b></p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Na assinatura da função, observamos que um valor inteiro é retornado (o número de valores lidos) e há parâmetros definidos: o primeiro <b>const char *format</b> se trata de um ponteiro para uma string constante de nome <b>format</b> que pode receber uma string com ou sem especificadores de tipo e o segundo <b>...</b> indica que inúmeras variáveis e/ou tipos de dados podem corresponder aos especificadores de tipo informados na string.</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A função scanf() recebe dois argumentos de entrada:</p>
+
+<ul>
+    <li><b>tipos de saída</b>: conjunto de caracteres que especifica o formato dos dados a serem lidos.</li>
+    <li><b>lista de variáveis</b>: conjunto de nomes de variáveis lidas e separados por vírgula, em que cada nome de variável é precedido pelo operador <b>&</b>.</li>
+</ul>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Forma básica da função scanf(): <b>scanf("tipo_de_entrada", &variavel)</b>. Os tipos de entrada especificam o formato de entrada dos dados lidos pela função scanf(). Cada tipo de entrada é precedido por um sinal de <b>%</b>, e um tipo de entrada deve ser especificado para cada variável a ser lida. Se quiséssemos ler duas variáveis, faríamos <b>scanf("%tipo1 %tipo2", &var1, &var2)</b>, e assim por diante. Note que os formatos e as variáveis que armazenarão o dado com aquele formato devem ser especificados na mesma ordem (cada tipo para cada variável). Além disso, as variáveis devem ser separadas por vírgula (igual a função printf()).</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Na linguagem C, é necessário colocar o símbolo & antes do nome de cada variável a ser lida pela função scanf(). Trata-se de uma exigência da linguagem C. <b> Todas as variáveis que irão receber valores do teclado por meio de scanf() deverão ser passadas pelos seus endereços de memória</b>. Isso é necessário porque de fato queremos alterar o valor da variável e, por esse motivo, é necessário passarmos seu endereço. Em funções, há uma diferença entre passar argumentos por valor e passar por referência, mas não vamos abordar isso por enquanto.</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A função scanf() pode ser usada para ler praticamente qualquer tipo de dado. No entanto, ela é usada com mais frequência para a leitura de númeors inteiros e/ou de ponto flutuante (números reais). A tabela a seguir mostra alguns tipos de entrada suportados pela linguagem:</p>
+
+<center>
+<table width="800px" height="100px">
+    <tr>
+        <th colspan="2">Alguns tipos de entrada</th>
+    </tr>
+    <tr>
+        <td>%c</td>
+        <td>leitura de um caractere (char)</td>
+    </tr>
+    <tr>
+        <td>%d ou %i</td>
+        <td>leitura de números inteiros (int ou char)</td>
+    </tr>
+    <tr>
+        <td>%f</td>
+        <td>leitura de números reais (float)</td>
+    </tr>
+    <tr>
+        <td>%s</td>
+        <td>leitura de vários caracteres (string)</td>
+    </tr>
+    <tr>
+        <td>%lf</td>
+        <td>leitura de números reais (double)</td>
+    </tr>   
+</table>
+</center>
+
+<br>
+
+<font size="2">Obs.: O especificador <b>%lf</b> é obrigatório para ler valores do tipo <b>double</b> no scanf(), ou seja, não se pode ler com <b>%f</b>, que deve ser usado apenas para leitura de <b>float</b>. No printf(), é indiferente se usar <b>%lf</b> ou <b>%f</b> para ler valores do tipo <b>double</b>.</font>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Abaixo, tem-se alguns exemplos de leitura de dados utilizando a função scanf():</p>
+
+<pre class="codigo-c" style="margin-left: 85px;">scanf("%d%d", &x, &y);<br>scanf("%d %d", &x, &y);</pre>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Acima, ambos os comandos são equivalentes. Isso ocorre porque a função scanf() ignora os espaços em branco entre os tipos de entrada. Além disso, quando a função scanf() é usada para ler dois ou mais valores, podemos optar por duas formas de digitar os dados no teclado:<p>
+
+<ul>
+    <li>Digitar um valor e, em seguida, pressionar a tecla <b>ENTER</b>. Fazer isso para cada valor a ser digitado.</li>
+    <li>Digitar todos os valores separados por espaço e, por último, pressionar a tecla <b>ENTER</b>.</li>
+</ul>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Abaixo, um programa demonstrando o uso da função scanf() lendo cada um dos tipos de dados básicos (com exceção do void):</p>
+
+<code>
+    <pre class="codigo-c">
+        1   include &ltstdio.h&gt
+        2
+        3   int main(void) {
+        4
+        5       int x = 10;
+        6       printf("\nDigite um número inteiro: ");
+        7       scanf("%d", &x); // lendo um número inteiro
+        8
+        9       char c;
+        10      printf("\nDigite um caractere: ");
+        11      scanf("%c", &c); // lendo um caractere
+        12
+        13      float f;
+        14      printf("\nDigite um número real: ");
+        15      scanf("%f", &f); // lendo um número real de precisão simples
+        16
+        17      double d;
+        18      printf("\nDigite um número real: ");
+        19      scanf("%lf", &d); // lendo um número real de dupla precisão 
+        20
+        21      return 0;
+        22
+        23  }
+    </pre>
+</code>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Perceba que definimos o valor da variável <b>x</b> como <b>10</b>, mas em seguida lemos um valor para essa variável com scanf(). O valor dessa variável será trocado após a leitura (exceto se o usuário também digite o valor 10). Para o restante das variáveis <b>c</b>, <b>f</b> e <b>d</b> nenhum valor foi atribuído na inicialização. Observe o operador de endereço de memória & precedendo cada identificador de varíavel.</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ao executar o programa, a saída que obtemos é a seguinte:</p>
+
+<img class="img-css" src="https://davikwiecien.github.io/imagens/entrada-saida-3.png" alt="3ª imagem" width="420px" height="280px">
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Podemos ler inúmeras variáveis com o scanf() e, inclusive, imprimir o valor de cada uma após a leitura:</p>
+
+<code>
+    <pre class="codigo-c">
+        1   include &ltstdio.h&gt
+        2
+        3   int main(void) {
+        4
+        5       int x = 10, y = 5;
+        6       float f = 40.55;
+        7       printf("Valor de x = %d\nValor de y = %d\nValor de f = %f\n", x, y, f);
+        8
+        9       printf("\nDigite novos valores para x, y e f: ");
+        10      scanf("%d %d %f", &x, &y, &f);
+        11       
+        12      printf("Valor de x = %d\nValor de y = %d\nValor de f = %f\n", x, y, f);
+        13
+        14      return 0;
+        15
+        16  }
+    </pre>
+</code>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No código acima, cada uma das variáveis <b>x</b>, <b>y</b> e <b>f</b> foram inicializadas com valores pré-definidos, mas podemos alterar o valor dessas variáveis com a função scanf() na linha <b>10</b>. Cada especificador de tipo deve corresponder, em ordem, a cada de tipo de variável listada após a vírgula. A função printf() foi usada para imprimir os valores das variáveis antes e depois da leitura com scanf().</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ao executar o programa, a saída que obtemos é a seguinte:</p>
+
+<img class="img-css" src="https://davikwiecien.github.io/imagens/entrada-saida-4.png" alt="4ª imagem" width="420px" height="280px">
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Além de usarmos função scanf(), podemos ler dados do teclado com a função <b>getchar() (get character)</b>, que permite ler um único caractere do teclado. Sua forma geral corresponde:</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>int getchar(void)</b></p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A função getchar() não recebe argumentos de entrada e permite ler um único caractere do teclado. A função retorna:</p>
+
+<ul>
+    <li>Se não ocorrer erro: o código ASCII do caractere lido.</li>
+    <li>Se ocorrer erro: a constante <b>EOF</b> (definida no cabeçalho stdio.h) é retornada.</li>
+</ul>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Perceba, nesse exemplo, que a conversão na linguagem C é direta no momento da leitura, ou seja, embora a função retorne um valor do tipo <b>int</b>, pode-se atribuir uma variável do tipo <b>char</b>, em virtudo da conversão automática da linguagem C. Abaixo, um programa demonstrando o uso da função getchar():</p>
+
+<code>
+    <pre class="codigo-c">
+        1   include &ltstdio.h&gt
+        2
+        3   int main(void) {
+        4
+        5       char c;
+        6       c = getchar();
+        7       
+        8       printf("Caractere: %c\n", c);
+        9       printf("Código ASCII: %d\n", c);
+        10      
+        11      return 0; 
+        12      
+        13  }
+    </pre>
+</code>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ao executar o programa, a saída que obtemos é a seguinte:</p>
+
+<img class="img-css" src="https://davikwiecien.github.io/imagens/entrada-saida-5.png" alt="5ª imagem" width="420px" height="280px">
+
+<h3 class="topico"><ul><li>gets() e fgets()</li></ul></h3>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Para lermos strings, podemos utilizar a função scanf():</p>
+
+<code>
+    <pre class="codigo-c">
+        1   include &ltstdio.h&gt
+        2
+        3   int main(void) {
+        4
+        5       char str[10];
+        6       scanf("%s", str);
+        7       
+        8       printf("\nString digitada: %s\n", str);
+        9       
+        10      return 0; 
+        11      
+        12  }
+    </pre>
+</code>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ao ler uma string, não é necessário passar o endereço da mesma, visto que uma string já faz uma referência ao endereço de sua primeira posição. Ao executar o programa, a saída que obtemos é a seguinte:</p>
+
+<img class="img-css" src="https://davikwiecien.github.io/imagens/entrada-saida-6.png" alt="6ª imagem" width="420px" height="280px">
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Com o scanf() nós conseguimos ler uma palavra, mas essa função não nos permite ler palavras compostas, pois a leitura é encerrada assim que um espaço é encontrado. Para isso, temos outras duas funções: <b>gets()</b> e <b>fgets</b>.</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A função gets() é uma função da linguagem C que nos permite ler strings sem especificar quantos caracteres devem ser lidos. Seu nome vem da expressão em inglês <b>get string</b> (pegar string). Abaixo, um exemplo demonstrando o uso da função gets():</p>
+
+<code>
+    <pre class="codigo-c">
+        1   include &ltstdio.h&gt
+        2
+        3   int main(void) {
+        4
+        5       char str[10];
+        6       gets(str);
+        7       
+        8       printf("\nString digitada: %s\n", str);
+        9       
+        10      return 0; 
+        11      
+        12  }
+    </pre>
+</code>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nós conseguimos ler palavras compostas com gets(), mas dependendo do compilador em uso, podemos receber um aviso nos alertando que a função gets() <b>é perigosa e não deve ser utilizada</b>. Isso acontece porque gets() é uma função antiga da linguagem C que não faz controle de quantos caracteres serão lidos, ou seja, podemos ler mais caracteres do que uma determinada string suporta e, por esse motivo, essa função é suscetível a ataques de <a href="https://pt.wikipedia.org/wiki/Transbordamento_de_dados" target="_blank">Buffer Overflow</a> (uma das mais clássicas vulnerabilidades da linguagem C e envolve a manipulação arbitrária da região de memória <a href="https://pt.wikipedia.org/wiki/Pilha_de_chamada" target="_blank">Stack</a>). Sendo assim, gets() é uma função obsoleta e seu uso deve ser evitado.</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ao executar o programa, a saída que obtemos é a seguinte:</p>
+
+<img class="img-css" src="https://davikwiecien.github.io/imagens/entrada-saida-7.png" alt="7ª imagem" width="420px" height="280px">
+
+<br><br>
+
+<font size="2">Obs.: Uma recomendação de leitura para entender melhor como um processo em C é organizado e, principalmente, como a Stack é organizada, além de mostrar como manipulá-la por ataques de Buffer Overflow envolvendo a função gets() é o paper <a href="https://inst.eecs.berkeley.edu/~cs161/fa08/papers/stack_smashing.pdf" target="_blank">"Smashing the Stack for Fun and Profit"</a>, publicado em 1995 por Aleph One. Esse paper é considerado um dos primeiros estudos a respeito dessa categoria de vulnerabilidade.</font>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A melhor forma de lermos string na linguagem C é utilizando a função <b>fgets()</b> que, ao contrário de gets(), nos permite controlar a quantidade de caracteres a serem lidos. Sua forma geral corresponde:</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>char *fgets(char *str, int n, FILE *stream)</b></p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Na assinatura da função, observamos que há três parâmetros definidos: o primeiro <b>char *str</b> se trata de um ponteiro para o endereço de memória da string a ser lida, o segundo <b>int n</b> é o número limite de caracteres que podem ser lidos e o terceiro <b>FIlE *stream</b> se trata de um ponteiro de onde a string será lida: FILE é uma macro pré-definida em stdio.h referente à <b>arquivos</b>, isso porque a função fgets() foi concedida objetivando ler informações armazenadas em arquivos, mas também nos permite ler dados da entrada padrão ou <b>stdin (standard input)</b>, nesse caso, do nosso teclado. Abaixo, um exemplo demonstrando o uso da função fgets():</p>
+
+<code>
+    <pre class="codigo-c">
+        1   include &ltstdio.h&gt
+        2
+        3   int main(void) {
+        4
+        5       char str[10];
+        6       fgets(str, 10, stdin);
+        7       
+        8       printf("\nString digitada: %s\n", str);
+        9       
+        10      return 0; 
+        11      
+        12  }
+    </pre>
+</code>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;O código acima faz o mesmo que o código do gets(), porém conseguimos ter controle sobre a quantidade de dados informados, tornando-o mais seguro ao impedir ataques de Buffer Overflow. Não conseguiríamos enviar para a string mais que <b>9</b> caracteres. Mas por que 9 se definimos o tamanho da string como <b>10</b>? Isso acontece porque strings são finalizadas com um caractere especial chamado <b>caractere terminador</b>, identificado por um <b>\0</b>, portanto, se digitássemos 10 caracteres, apenas 9 seriam considerados e o último assumiria o terminador da string. Abaixo, a imagem demonstra como uma string (sequência de caracteres) é representada na memória:</p>
+
+<img class="img-css" src="https://davikwiecien.github.io/imagens/string-in-memory.png" alt="String na memória" width="450px" height="180px"><br>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Quando falamos em strings, que nada mais são do que arrays de caracteres ocupando <b>n</b> bytes na memória, precisamos entender que as mesmas possuem <b>índices</b>, que "marcam" as suas posições. Todo array inicia com o índice <b>0</b>, portanto, quando falamos, por exemplo, do índice <b>6</b> de um array, estamos falando de sua sétima posição. Cada índice possui um endereço de memória, sendo o índice <b>0</b> o endereço inicial daquela string. Também notamos a presença do caractere nulo no índice <b>5</b> finalizando a string <b>Hello</b>.</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ao executar o programa, a saída que obtemos é a seguinte:</p>
+
+<img class="img-css" src="https://davikwiecien.github.io/imagens/entrada-saida-8.png" alt="8ª imagem" width="420px" height="280px">
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Isto posto, vimos a melhor forma de lermos strings do usuário, fazendo o controle de quantos dados são enviados. Portanto, é sempre preferível o uso da função <b>fgets()</b> ao uso de <b>scanf()</b> e, principalmente, ao uso de <b>gets()</b> (nunca deve ser usado).</p>
+
+</body>
+
+<script>
+    function mudarCSS(){
+        var tema = document.getElementsByTagName('link')[0];
+
+        if (tema.getAttribute('href') == '../estilos-claro.css') {
+                tema.setAttribute('href', '../estilos-escuro.css');
+        } else {
+            tema.setAttribute('href', '../estilos-claro.css');
+        }
+    }
+</script>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<meta charset="UTF-8">
+<html>
+
+<head>
+  <title>Tutorial de linguagem C</title>
+  <link id="tema" rel="stylesheet" type="text/css" href="estilos-claro.css">
+</head>
+
+<body>
+
+<div class="nav-index">
+    <h1>Tutorial básico de linguagem C</h>
+</div>
+
+<div style="margin-top: 220px; margin-right: 12px;" id="botoes">
+      <button style="height: 90px; width: 250px; font-size: 30px;" type="button" onclick="mudarCSS()">Mudar a cor da página</button>
+</div>
+
+<div class="sidenav">
+  <center>
+  <a href="paginas\introducao.html">Introdução</a>
+  <a href="paginas\compilacao-interpretacao.html">Diferenças entre compilação e interpretação</a>
+  <a href="paginas\ferramentas-utilizadas.html">Ferramentas utilizadas</a>
+  <a href="paginas\funcao-main.html">Função main() e estrutura de um programa em C</a>
+  <a href="paginas\biblioteca-arquivos.html">Biblioteca padrão C e arquivos de cabeçalho</a>
+  <a href="paginas\variaveis-tipos-de-dados-modificadores-keywords.html">Variáveis, tipos de dados e modificadores de tipo</a>
+  <a href="paginas\impressao-leitura.html">Impressão e leitura de informações</a>
+  <a href="paginas\principais-operadores.html">Principais operadores</a>
+  <a href="paginas\questionario.html">Questionário</a>
+</center>
+</div>
+
+<div class="logo">
+  <img src="https://davikwiecien.github.io/imagens/c-logo.png" alt="logo da linguagem-c"> 
+</div>
+
+</body>
+
+<script>
+    function mudarCSS(){
+        var tema = document.getElementsByTagName('link')[0];
+
+        if (tema.getAttribute('href') == 'estilos-claro.css') {
+                tema.setAttribute('href', 'estilos-escuro.css');
+        } else {
+            tema.setAttribute('href', 'estilos-claro.css');
+        }
+    }
+</script>
+
+</html>
+ 

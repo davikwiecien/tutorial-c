@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<meta charset="UTF-8">
+<html>
+
+<head>
+    <title>Biblioteca padrão C e arquivos de cabeçalho</title>
+    <link id="tema" rel="stylesheet" type="text/css" href="../estilos-claro.css">
+</head>
+
+<body>
+
+<div class="nav">
+    <a class="botao" href="funcao-main.html">Página anterior</a>
+        <div class="titulo">
+            <h1>Biblioteca padrão C e arquivos de cabeçalho</h1> 
+        </div>
+    <a class="botao" href="variaveis-tipos-de-dados-modificadores-keywords.html">Próxima página</a>
+</div>
+
+<div id="botoes">
+      <button type="button" onclick="mudarCSS()">Mudar a cor da página</button>
+</div>
+
+<h3 class="topico" style="margin-top: 100px;"><ul><li>O que é a biblioteca padrão C?</li></ul></h3> 
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A biblioteca padrão C é uma coleção padronizada de arquivos de cabeçalho e rotinas de bibliotecas utilizadas para implementar operações comuns, como E/S e manipulação de strings, entre outras. Diferente de linguagens como Fortran, Cobol e <a href="https://pt.wikipedia.org/wiki/PL/I" target="_blank">PL/I</a>, a linguagem C não possui palavras-chave para tais tarefas, de forma que praticamente todo programa escrito em C faz uso da biblioteca padrão. Cada compilador C possui sua implementação da biblioteca padrão C. Em 1983 a ANSI formou um comitê para estabelecer uma especificação formal da linguagem conhecida como ANSI C. Esse trabalho culminou na criação padrão C89 em 1989. Parte do padrão que havia surgido era um conjunto de bibliotecas chamado biblioteca padrão do ANSI C.</p>
+
+<h3 class="topico"><ul><li>O que são arquivos de cabeçalho e quais suas diferenças para bibliotecas?</li></ul></h3>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A API da biblioteca padrão C é declarada em um número de arquivos de cabeçalho. Os arquivos de cabeçalho contém declarações de funções (sua assinatura: nome, parâmetros e tipo de retorno), bem como constantes e/ou macros. Não possuem, por exemplo, a real implementação do código de uma função e sua inclusão noutros códigos-fonte acontece por parte do programador. Uma biblioteca, no que lhe concerne, é de fato o que implementa o código (funcionalidade) das funções declaradas nos arquivos de cabeçalho, incluída pelo compilador na fase final de compilação. Basicamente, os arquivos de cabeçalho servem como um link (uma interface) para o arquivo de biblioteca que possui a funcionalidade real, enquanto as bibliotecas são os arquivos que contém os códigos pré-programados e organizados que poderão ser utilizados em aplicações, reunindo recursos que serão utilizados por programas de computador e incluem:</p>
+
+<ul>
+    <li>Dados de configuração</li>
+    <li>Documentação</li>
+    <li>Procedimentos</li>
+    <li><a href="https://pt.wikipedia.org/wiki/Classe_(programa%C3%A7%C3%A3o)" target="_blank">Classes</a></li>
+    <li>Funções</li>
+    <li><a href="https://en.wikipedia.org/wiki/Template_(C%2B%2B)" target="_blank">Templates</a></li>
+    <li>Especificações de tipos</li>
+</ul>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exemplificando, em C, <a href="https://pt.wikipedia.org/wiki/Math.h" target="_blank">math.h</a> é um arquivo de cabeçalho com protótipos de funções como pow() e sqrt(), ao passo que as funções propriamente são implementadas em bibliotecas como libm.lib ou libmmd.lib.</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A tabela abaixo lista as diferenças entre bibliotecas e arquivos de cabeçalho:</p>
+
+<center>
+<table width="800px" height="100px">
+    <tr>
+        <th>&nbsp;</th>
+        <th>Arquivos de cabeçalho</th>
+        <th>Arquivos de biblioteca</th>
+    </tr>
+    <tr>
+        <td class="first-td">O que é?</td>
+        <td>Arquivo que contém declarações de funções que serão compartilhadas entre diversos arquivos fonte</td>
+        <td>Arquivo que contém definições de funções para as funções referenciadas nos arquivos de cabeçalho</td>
+    </tr>
+    <tr>
+        <td class="first-td">Formato</td>
+        <td>São legíveis por humanos, uma vez que possuem formato de texto</td>
+        <td>Não são legíveis por humanos, uma vez que possuem formato binário</td>
+    </tr>
+    <tr>
+        <td class="first-td">Método de inclusão</td>
+        <td>O programador inclui através da diretiva de pré-processamento <b>#include</b></td>
+        <td>O compilador relaciona os arquivos de biblioteca relevantes automaticamente para o programa e o linker inclui-os no último estágio de compilação</td>
+    </tr>
+    <tr>
+        <td class="first-td">Modificação</td>
+        <td>Podem ser modificados</td>
+        <td>Não podem ser modificados</td>
+    </tr>
+    <tr>
+        <td class="first-td">Extensão</ttdh>
+        <td>Possuem extensão <b>.h</b></td>
+        <td>Possuem extensão <b>.lib</b></td>
+    </tr>
+    <tr>
+        <td class="first-td">Local</td>
+        <td>Disponíveis no sub-diretório <b>include</b> do compilador</td>
+        <td>Disponíveis no sub-diretório <b>lib</b> do compilador</b></td>
+    </tr>
+</table>
+</center>
+
+<h3 class="topico"><ul><li>Por que as bibliotecas não são vinculadas diretamente ao código-fonte?</li></ul></h3>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As bibliotecas são referenciadas por arquivos de cabeçalho porque um único header pode conter referências a várias bibliotecas em simultâneo, poupando trabalho. Com uma única linha de código, são carregadas funções de várias bibliotecas.</p>
+
+<h3 class="topico"><ul><li>Arquivos de cabeçalhos do ANSI C</li></ul></h3>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A biblioteca padrão C consiste em 24 arquivos de cabeçalho, cada um contendo uma ou mais declarações de funções, tipos de dados e macros. Abaixo, uma tabela que lista cada um dos cabeçalhos disponíveis:</p>
+
+<center>
+<table width="800px" height="100px">
+    <tr>
+        <th>&nbsp;</th>
+        <th>Descrição</th>
+        <th>Disponibilidade a partir de</th>
+    </tr>
+    <tr>
+        <td>&ltassert.h&gt</td>
+        <td>Macro para ajudar na detecção de erros lógicos e outros tipos de erros em versões de depuração de um programa</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&ltcomplex.h&gt</td>
+        <td>Conjunto de funções para manipular números <a href="https://pt.wikipedia.org/wiki/N%C3%BAmero_complexo" target="_blank">complexos</a></td>
+        <td>C99</td>
+    </tr>
+    <tr>
+        <td>&ltctype.h&gt</td>
+        <td>Funções usadas para classificar caracteres pelo tipo ou para converter entre caixa alta e baixa independentemente da codificação</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&lterrno.h&gt</td>
+        <td>Teste de códigos de erro reportados pelas funções de bibliotecas</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&ltfenv.h&gt</td>
+        <td>Controle de ponto flutuante</td>
+        <td>C99</td>
+    </tr>
+    <tr>
+        <td>&ltfloat.h&gt</td>
+        <td>Constantes de propriedades específicas de implementação da biblioteca de ponto flutuante, como a menor diferença entre dois números de ponto flutuante distintos (_EPSILON), a quantidade máxima de dígitos de acurácia (_DIG) e a faixa de números que pode ser representada (_MIN, _MAX)</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&ltinttypes.h&gt</td>
+        <td>Conversão precisa entre tipos inteiros</td>
+        <td>C99</td>
+    </tr>
+    <tr>
+        <td>&ltiso646.h&gt</td>
+        <td>Programação na codificação de caracteres <a href="https://pt.wikipedia.org/wiki/ISO/IEC_646" target="_blank">ISO 646</a></td>
+        <td>NA1</td>
+    </tr>
+    <tr>
+        <td>&ltlimits.h&gt</td>
+        <td>Constantes de propriedades específicas de implementação da biblioteca de tipos inteiros, como a faixa de números que pode ser representada (_MIN, _MAX)</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&ltlocale.h&gt</td>
+        <td>Constantes para <a href="https://pt.wikipedia.org/wiki/Locale" target="_blank">setlocale()</a> e assuntos relacionados</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&ltmath.h&gt</td>
+        <td>Funções matemáticas comuns em computação</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&ltsetjmp.h&gt</td>
+        <td>Macros setjmp e longjmp, para saídas não locais</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&ltsignal.h&gt</td>
+        <td>Tratamento de <a href="https://pt.wikipedia.org/wiki/Sinal_(ci%C3%AAncia_da_computa%C3%A7%C3%A3o)" target="_blank">sinais</a></td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&ltstdarg.h&gt</td>
+        <td>Acesso dos argumentos passados para funções com parâmetro variável</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&ltstdbool.h&gt</td>
+        <td>Definição do tipo de dado booleano</td>
+        <td>C99</td>
+    </tr>
+    <tr>
+        <td>&ltstdint.h&gt</td>
+        <td>Definição de tipos de dados inteiros</td>
+        <td>C99</td>
+    </tr>
+    <tr>
+        <td>&ltstddef.h&gt</td>
+        <td>Diversos tipos e macros úteis</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&ltstdio.h&gt</td>
+        <td>Manipulação de entrada/saída</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&ltstdlib.h&gt</td>
+        <td>Diversas operações, incluindo conversão, geração de números pseudo-aleatórios, alocação de memória, controle de processo, sinais, busca e ordenação</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&ltstring.h&gt</td>
+        <td>Tratamento de cadeia de caracteres</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&lttgmath.h&gt</td>
+        <td>Funções matemáticas</td>
+        <td>C99</td>
+    </tr>
+    <tr>
+        <td>&lttime.h&gt</td>
+        <td>Conversão de tipos de dado de data e horário</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&ltwchar.h&gt</td>
+        <td>Manipulação de <a href="https://en.wikipedia.org/wiki/Wide_character" target="_blank">caractere wide</a>, usado para suportar diversas línguas</td>
+        <td>NA1</td>
+    </tr>
+    <tr>
+        <td>&ltwctype.h&gt</td>
+        <td>Classificação de caracteres wide</td>
+        <td>NA1</td>
+    </tr>
+</table>
+</center>
+
+<br>
+
+<font size="2">Obs.: Os cabeçalhos &ltiso646.h&gt, &ltwchar.h> e &ltwctype.h&gt foram adicionados com o <a href="https://en.wikichip.org/wiki/c/normative_addendum_1" target="_blank">Normative Addendum 1 (NA1)</a>, uma ratificação de 1995. Já os cabeçalhos &ltcomplex.h&gt, &ltfenv.h&gt, &ltinttypes.h&gt, &ltstdbool.h&gt, &ltstdint.h> e &lttgmath.h&gt foram adicionados com o C99, uma revisão do padrão publicada em 1999.</font>
+
+<br><br>
+
+<img class="img-css" src="https://davikwiecien.github.io/imagens/header-c-library.png" alt="Biblioteca padrão C e arquivos de cabeçalho" width="400px" height="350px"><br>
+<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Biblioteca padrão C e arquivos de cabeçalho</font>
+
+<h3 class="topico"><ul><li>Localização dos arquivos de cabeçalho no Windows</li></ul></h3>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No Windows, os arquivos de cabeçalho estão localizados em <b>C:\MinGW\include</b>:</p>
+
+<img class="img-css" src="https://davikwiecien.github.io/imagens/include-windows.png" alt="Include no Windows" width="680px" height="410px"><br>
+
+<h3 class="topico"><ul><li>Localização dos arquivos de cabeçalho no Linux</li></ul></h3>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No Linux, os arquivos de cabeçalho estão localizado em <b>/usr/include</b>:</p>
+
+<img class="img-css" src="https://davikwiecien.github.io/imagens/include-linux.png" alt="Include no Linux" width="680px" height="410px"><br><br>
+
+</body>
+
+<script>
+    function mudarCSS(){
+        var tema = document.getElementsByTagName('link')[0];
+
+        if (tema.getAttribute('href') == '../estilos-claro.css') {
+                tema.setAttribute('href', '../estilos-escuro.css');
+        } else {
+            tema.setAttribute('href', '../estilos-claro.css');
+        }
+    }
+</script>
+
+</html>

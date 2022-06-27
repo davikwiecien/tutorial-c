@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+
+<meta charset="UTF-8">
+<html>
+
+<head>
+    <title>Compilação e interpretação</title>
+    <link id="tema" rel="stylesheet" type="text/css" href="../estilos-claro.css">
+</head>
+
+<body>
+
+<div class="nav">
+    <a class="botao" href="introducao.html">Página anterior</a>
+        <div class="titulo">
+            <h1>Compilação e interpretação</h1> 
+        </div>
+    <a class="botao" href="ferramentas-utilizadas.html">Próxima página</a>
+</div>
+
+<div id="botoes">
+      <button type="button" onclick="mudarCSS()">Mudar a cor da página</button>
+</div>
+
+<h3 class="topico" style="margin-top: 100px;"><ul><li>O que é um compilador?</li></ul></h3>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://pt.wikipedia.org/wiki/Compilador" target="_blank">Compilador</a> é um software intermediário cujo objetivo é converter um código codificado em uma linguagem de alto nível para um código de máquina compreendido pelo computador. O processo de compilação acontece <b>anterior à execução do programa</b>, ou seja, primeiramente o programa é compilado por completo para então gerar o executável e ser propriamente executado. Caso um erro seja identificado na compilação do programa, o mesmo nem chega a ser executado e mensagens de erros são apresentadas ao programador. Resumidamente, o processo de compilação consiste em converter um código escrito em uma linguagem A para o código de uma linguagem B, por exemplo, traduzir um código-fonte escrito em C para o nativo do processador.<br></p>
+
+<h3 class="topico"><ul><li>O que é um interpretador?</li></ul></h3>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;O processo de compilação contrasta com o processo de interpretação, onde um <a href="https://pt.wikipedia.org/wiki/Interpretador" target="_blank">interpretador</a> é responsável pela transformação de um código em alto nível para uma linguagem intermediária que será interpretada <b>em tempo de execução</b> por um software de <a href="https://pt.wikipedia.org/wiki/M%C3%A1quina_virtual" target="_blank">máquina virtual</a> (próprio da linguagem). Nesse processo, a máquina virtual simula um sistema computacional e o código-fonte é convertido para os códigos determinados no "conjunto de instruções" desse sistema em questão e não à arquitetura de hardware real do computador utilizado. Essa técnica provê uma <b>maior portabilidade</b> em relação às linguagens que utilizam um compilador que gera código nativo, pois o programa pode rodar em qualquer arquitetura que contenha uma máquina virtual instalada, já que a mesma é <b>independente de plataforma</b>. Diferente da compilação, o interpretador lê e executa linha a linha, portanto, ao ler uma instrução, imediatamente já a executa. Erros são identificados enquanto o programa está sendo executado e, ao encontrar algum, uma mensagem é informada e o programa pode encerrar sua execução.<br></p>
+
+<h3 class="topico"><ul><li>Exemplo de linguagens tipicamente compiladas e de como funciona o processo de compilação:</li></ul></h3>
+
+<br>
+<table id="table1">
+  <tr>
+    <td> 
+        <ul>
+            <li>C</li>
+            <li>C++</li>
+            <li>Cobol</li>
+            <li>Basic</li>
+            <li>Delphi</li>
+            <li>Fortran</li>
+            <li>Pascal</li>
+            <li>C#</li>
+            <li>Haskell</li>
+            <li>Rust</li>
+        </ul>
+    </td>
+    <td>
+        <img src="https://davikwiecien.github.io/imagens/compilacao.png" alt="Processo de compilação">
+    </td>
+  </tr>
+</table>
+
+<h3 class="topico"><ul><li>Exemplo de linguagens tipicamente interpretadas e de como funciona o processo de interpretação:</li></ul></h3>
+
+<br>
+
+<table id="table2">
+  <tr>
+    <td> 
+        <ul">
+            <li>Python</li>
+            <li>PHP</li>
+            <li>JavaScript</li>
+            <li>Ruby</li>
+            <li>Lua</li>
+            <li>Smalltalk</li>
+        </ul>
+    </td>
+    <td>
+        <img src="https://davikwiecien.github.io/imagens/interpretacao.png" alt="Processo de interpretação">
+    </td>
+  </tr>
+</table>
+
+<br><br>
+
+<font size="2">Obs.: Está escrito acima que são linguagens <b>tipicamente</b> compiladas ou interpretadas porque esses conceitos não são particulares das linguagens de programação; <b>uma linguagem compilada pode ser implementada para ser interpretada e o contrário também é verdade</b>. Todas as linguagens podem ser compiladas e/ou interpretadas (salvo alguma característica própria ou se a especificação da linguagem impossibilita outras abordagens). Por exemplo, o <a href="https://www.softintegration.com/" target="_blank">Ch</a> e o <a href="https://root.cern/cling/" target="_blank">Cling</a> são interpretadores interativos para, respectivamente, C/C++ e C++.</font>
+
+<h3 class="topico"><ul><li>Tabela comparativa entre compilação e interpretação:</li></ul></h3>
+
+<br>
+
+<center>
+<table class="comparacao">
+    <tr>
+        <th><big>Compilação</big></th>
+        <th><big>Interpretação</big></th>
+    </tr>
+    <tr>
+        <td><big>O compilador analisa todo o programa como uma entrada<big></td>
+        <td><big>O interpretador analisa uma única instrução como uma entrada</td>
+    </tr>
+    <tr>
+        <td><big>Execução mais rápida</big></td>
+        <td><big>Execução mais lenta</big></td>
+    </tr>
+    <tr>
+        <td><big>Várias etapas de tradução</big></td>
+        <td><big>Resultado imediato do programa</big></td>
+    </tr>
+    <tr>
+        <td><big>O programa necessita ser compilado uma única vez</big></td>
+        <td><big>O programa é convertido para "código de máquina" a cada execução</big></td>
+    </tr>
+    <tr>
+        <td><big>Menor portabilidade</big></td>
+        <td><big>Maior portabilidade</big></td>
+    </tr>
+    <tr>
+        <td><big>Produz código de máquina nativo</big></td>
+        <td><big>Produz "código de máquina" para uma máquina virtual</big></td>
+    </tr>
+    <tr>
+        <td><big>Necessário possuir o código-fonte para compilação</big></td>
+        <td><big>Não é necessário possuir o código-fonte para interpretação</big></td>
+    </tr>
+    <tr>
+        <td><big>Menor segurança em relação à propriedade intelectual do códido-fonte</big></td>
+        <td><big>Maior segurança em relação à propriedade intelectual do códido-fonte</big></td>
+    </tr>
+    <tr>
+        <td><big>Consome mais memória (já que um código objeto é gerado)</big></td>
+        <td><big>Consome menos memória</big></td>
+    </tr>
+    <tr>
+        <td><big>Erros são apresentados depois que o programa inteiro for analisado</big></td>
+        <td><big>Erros são apresentados para cada instrução interpretada (se houver)</big></td>
+    </tr>
+    <tr>
+        <td><big>Compiladores são maiores em tamanho</big></td>
+        <td><big>Interpretadores são menores em tamanho</big></td>
+    </tr>
+</table>
+</center>
+
+<br>
+
+<h3 class="topico"><ul><li>Abordagem híbrida</li></ul></h3>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Algumas linguagens se beneficiam de uma abordagem híbrida entre compilação e interpretação, um exemplo é a linguagem <a href="https://pt.wikipedia.org/wiki/Java_(linguagem_de_programa%C3%A7%C3%A3o)" target="_blank">Java</a>, que produz uma espécie de código intermediário denominado <a href="https://pt.wikipedia.org/wiki/Bytecode_Java" target="_blank">bytecode</a> a partir do processo de compilação e interpreta-o em tempo de execução através de sua máquina virtual <a href="https://pt.wikipedia.org/wiki/M%C3%A1quina_virtual_Java" target="_blank">JVM (Java Virtual Machine)</a>.</p>
+
+</body>
+
+<script>
+    function mudarCSS(){
+        var tema = document.getElementsByTagName('link')[0];
+
+        if (tema.getAttribute('href') == '../estilos-claro.css') {
+                tema.setAttribute('href', '../estilos-escuro.css');
+        } else {
+            tema.setAttribute('href', '../estilos-claro.css');
+        }
+    }
+</script>
+
+<html>

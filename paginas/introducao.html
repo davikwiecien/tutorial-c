@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<meta charset="UTF-8">
+<html>
+
+<head>
+    <title>Introdução</title>
+    <link id="tema" rel="stylesheet" type="text/css" href="../estilos-claro.css">
+</head>
+
+<body>
+
+<div class="nav">
+    <a class="botao" href="..\index.html">Página inicial</a>
+        <div class="titulo">
+            <h1>Introdução à linguagem C</h1> 
+        </div>
+    <a class="botao" href="compilacao-interpretacao.html">Próxima página</a>
+</div>
+
+<div id="botoes">
+      <button type="button" onclick="mudarCSS()">Mudar a cor da página</button>
+</div>
+
+<h3 class="topico" style="margin-top: 100px;"><ul><li>História</li></ul></h3>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A <a href="https://pt.wikipedia.org/wiki/C_(linguagem_de_programa%C3%A7%C3%A3o)" target="_blank">linguagem C</a> é uma das mais importantes linguagens de programação já desenvolvidas, influenciando inúmeras linguagens subsequentes e se consolidando como um ponto-chave na história da programação e da computação em sua totalidade.<br></p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Seu desenvolvimento se deu entre os anos de 1969 a 1973 nos laboratórios <a href="https://pt.wikipedia.org/wiki/Bell_Labs" target="_blank">Bell Labs</a>, pertencentes à empresa de telecomunicações <a href="https://pt.wikipedia.org/wiki/AT%26T" target="_blank">AT&T</a>, situada nos Estados Unidos. Foi criada pelo cientista da computação <a href="https://pt.wikipedia.org/wiki/Dennis_Ritchie" target="_blank">Dennis Ritchie</a> com o auxílio do seu colega de trabalho <a href="https://pt.wikipedia.org/wiki/Ken_Thompson" target="_blank">Ken Thompson</a>, de modo a reescrever e portar o Kernel do <a href="https://pt.wikipedia.org/wiki/Unix" target="_blank">Unix</a> (inicialmente escrito em <a href="https://pt.wikipedia.org/wiki/Linguagem_assembly" target="_blank">Assembly</a>) para o computador <a href="https://pt.wikipedia.org/wiki/PDP-11" target="_blank">DEC PDP-11</a>. A linguagem C e o sistema operacional Unix são tecnologias contemporâneas, <b>intrinsecamente ligadas</b>, o que levou ao Kernel do Unix ser totalmente reescrito em C no verão de 1973.<br></p>
+
+<img class="img-css" src="https://davikwiecien.github.io/imagens/Ritchie_Thompson.jpg" alt="Ken Thompson e Dennis Ritchie" width="500px" height="340px"><br>
+<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dennis Ritchie (em pé) e Ken Thompson (sentado) - os criadores da linguagem C</font>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ken Thompson criou o Unix com a ajuda da linguagem que antecedeu a C: a <a href="https://pt.wikipedia.org/wiki/B_(linguagem_de_programa%C3%A7%C3%A3o)" target="_blank">Linguagem B</a>. Essa linguagem foi criada pelo próprio Thompson visando melhorar um pouco mais a linguagem <a href="https://pt.wikipedia.org/wiki/BCPL" target="_blank">BCPL</a> que foi criada por  <a href="https://pt.wikipedia.org/wiki/Martin_Richards" target="_blank">Martin Richards</a>, então Ken Thompson nomeou sua linguagem dessa forma <b>- B é uma possível contracção de BCPL</b>. B herdou a natureza sem tipos de BCPL, onde o único tipo de dado era a <a href="https://pt.wikipedia.org/wiki/Palavra_(ci%C3%AAncia_da_computa%C3%A7%C3%A3o)" target="_blank">word</a>, qualquer que fosse seu tamanho.<br></p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A natureza sem tipos da linguagem B apresentava várias desvantagens à medida que máquinas com suporte a processamento
+<a href="https://pt.wikipedia.org/wiki/ASCII" target="_blank">ASCII</a> tornavam-se comuns. Por esse motivo, Thompson e Ritchie começaram a desenvolver uma versão expandida da linguagem que suportava novos tipos internos (além da word) e aqueles definidos pelos usuários (as <a href="https://en.wikipedia.org/wiki/Struct_(C_programming_language)" target="_blank">estruturas</a>). Essa nova versão veio a se tornar a linguagem NB (New B) e posteriormente a linguagem C.</p>
+
+<img class="img-css" src="https://davikwiecien.github.io/imagens/pdp-11.png" alt="PDP-11" width="420px" height="330px"><br>
+<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Computador PDP-11, onde ocorreu a primeira implementação do Unix compilado em linguagem C</font>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Devido à  fácil portabilidade provida pela linguagem C e pelo próprio Unix, essas duas tecnologias se popularizaram muito na década de 1970, ao passo que muitas universidades e organizações <b>adotaram a linguagem e passaram a criar suas próprias versões</b>. Embora a linguagem C não fosse originalmente projetada tendo a portabilidade como uma meta principal, ela teve sucesso expressando programas, incluindo igualmente sistemas operacionais, em máquinas que variam de pequenos computadores pessoais até poderosos supercomputadores. Trata-se de uma linguagem <b>suficientemente abstrata</b> dos detalhes do <a href="https://pt.wikipedia.org/wiki/Hardware" target="_blank">hardware</a> subjacente de modo que a <b>portabilidade</b> dos programas pode ser alcançada.<br></p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;C é uma linguagem de <a href="https://en.wikipedia.org/wiki/High-level_programming_language" target="_blank">alto nível</a>, isso significa ser composta de instruções abstratas (diferentes daquelas presentes no <a href="https://pt.wikipedia.org/wiki/Conjunto_de_instru%C3%A7%C3%B5es" target="_blank">conjunto de instruções</a> de uma arquitetura de <a href="https://pt.wikipedia.org/wiki/Microprocessador" target="_blank">processador</a>) e estar <b>mais próxima da linguagem humana</b>, isto é, facilita a compreensão de suas estruturas para os seres humanos. Porém, apesar de ser alto nível, C fornece um acesso consideravelmente de baixo nível à <a href="https://pt.wikipedia.org/wiki/Mem%C3%B3ria_de_acesso_aleat%C3%B3rio" target="_blank">memória</a>, produzindo <a href="https://pt.wikipedia.org/wiki/Execut%C3%A1vel" target="_blank">executáveis</a> muito enxutos e velozes que "conversam" bem com o sistema operacional e permitindo acesso e programação direta do microprocessador.<br></p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;O livro <a href="https://pt.wikipedia.org/wiki/The_C_Programming_Language" target="_blank">"A Linguagem de Programação C"</a>, publicado em 1978 e escrito por Dennis Ritchie e <a href="https://pt.wikipedia.org/wiki/Brian_Kernighan" target="_blank">Brian Kernighan</a>, sendo comumente referido como C K&R (Kernighan and Ritchie), serviu como uma <b>primeira referência informal</b> da linguagem até um padrão formal ser adotado mais de dez anos depois.<br></p>
+
+<center>
+<img class="img-css" src="https://davikwiecien.github.io/imagens/K-R.png" alt="Livro K&R" width="400px" height="520px">
+</center>
+
+<center>
+<font size="2">Livro escrito por Ritchie e Kernighan em 1978, considerado o menor denominador comum quando se trata da estrutura e sintaxe da linguagem C</font>
+</center>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Durante a década de 1980 a linguagem C espalhou-se globalmente e vários compiladores foram constituídos para diferentes arquiteturas e sistemas operacionais. Na época, havia muitos produtores independentes de compiladores. Em meados de 1982, era nítido que a linguagem C precisava de uma padronização formal, para contornar dois problemas em evidência: a incompatibilidade dos inúmeros compiladores produzidos à época e o fato da descrição de K&R não mais relatar a linguagem como havia feito. Ademais, o uso incipiente da linguagem C em projetos sujeitos a contratos comerciais e governamentais significou que uma padronização era importante. Sendo assim, a <a href="https://pt.wikipedia.org/wiki/American_National_Standards_Institute" target="_blank">ANSI (American National Standards Institute)</a>  estabeleceu no verão de 1983 o comitê <a href="https://www.wikidata.org/wiki/Q22969520" target="_blank">X3J11</a>, sob a direção do CBEMA, <b>objetivando produzir um padrão</b> para a linguagem C (que ficaria conhecido como ANSI C). O comitê X3J11 finalizou seu relatório no final de 1989 e, subsequentemente, foi aceito, em 1990, pela <a href="https://pt.wikipedia.org/wiki/Organiza%C3%A7%C3%A3o_Internacional_de_Normaliza%C3%A7%C3%A3o" target="_blank">ISO (International Organization for Standardization)</a>  estabeleceu no verão de 1983 o comitê X3J11 como ISO/IEC 9899-1990. Uma reformulação do padrão ocorreu em 1999, chamado <a href="https://en.wikipedia.org/wiki/C99" target="_blank">C99</a> ou ISO/IEC 9899:1999, remodelando a sintaxe e adicionando novas funcionalidades e tipos de dados, por exemplo, a inclusão de arrays de comprimento variável <a href="https://en.wikipedia.org/wiki/Variable-length_array" target="_blank">(VLA - Variable Lenght Arrays)</a> definidos em tempo de execução e os tipos long long int e complex. Uma nova reformulação veio em 2011, chamado <a href="https://en.wikipedia.org/wiki/C11_(C_standard_revision)" target="_blank">C11</a> ou ISO/IEC 9899:2011, e a mais recente, desenvolvida em 2017 e publicada em 2018, a versão <a href="https://en.wikipedia.org/wiki/C17_(C_standard_revision)" target="_blank">C17</a> ou ISO/IEC 9899:2018.<br></p>
+
+<h3 class="topico"><ul><li>Características</li></ul></h3>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A linguagem C é uma linguagem tipicamente compilada e pertence aos seguintes paradigmas de programação: <b>estrutural, imperativo e procedimental</b>. Abaixo, segue a definição de cada um dos termos: </p>
+
+<ul>
+    <li><a href="https://pt.wikipedia.org/wiki/Linguagem_compilada" target="_blank">Linguagem compilada:</a>  linguagem que passa por um processo de compilação, onde as instruções codificadas em alto nível são convertidas para as instruções de máquina da arquitetura de hardware subjacente, gerando o que é chamado <a href="https://pt.wikipedia.org/wiki/C%C3%B3digo_objeto" target="_blank">código objeto</a>, que irá ser <a href="https://pt.wikipedia.org/wiki/Ligador" target="_blank">linkado</a> com outras <a href="https://pt.wikipedia.org/wiki/Biblioteca_(computa%C3%A7%C3%A3o)" target="_blank">bibliotecas de códigos</a> e arquivos objetos para gerar um executável apropriado para aquela plataforma em específico. O processo de compilação será explicado com mais detalhes na próxima página.</li>
+    <li><a href="https://pt.wikipedia.org/wiki/Programa%C3%A7%C3%A3o_estruturada" target="_blank">Paradigma estruturado:</a> paradigma de programação do qual se baseia em três etapas básicas e fundamentais: sequência, seleção/condicionais e repetição. Foi estabelecido no final da década de 1950 junto às linguagens da família <a href="https://pt.wikipedia.org/wiki/ALGOL" target="_blank">ALGOL</a>, mas se popularizou após a publicação do artigo <a href="https://homepages.cwi.nl/~storm/teaching/reader/Dijkstra68.pdf" target="_blank">"Go To Statement Considered Harmful"</a> em 1968 pelo cientista da computação holandês <a href="https://pt.wikipedia.org/wiki/Edsger_Dijkstra" target="_blank">Edsger Dijkstra</a>, que descrevia o uso indevido de <a href="https://pt.wikipedia.org/wiki/Goto_(programa%C3%A7%C3%A3o)" target="_blank">Goto</a> e como essa instrução era prejudical e deveria ser evitada. Perdurou como o principal paradigma de programação por muitos anos até o momento em que a <a href="https://pt.wikipedia.org/wiki/Programa%C3%A7%C3%A3o_orientada_a_objetos" target="_blank">programação orientada a objetos</a> tomou seu lugar de protagonismo no desenvolvimento de <a href="https://pt.wikipedia.org/wiki/Software" target="_blank">software</a>.</li>
+    <li><a href="https://pt.wikipedia.org/wiki/Programa%C3%A7%C3%A3o_imperativa" target="_blank">Paradigma imperativo:</a> paradigma de programação do qual o programador expressa ordens e ações que o programa deve corresponder, descrevendo a computação como ações, enunciados ou comandos que mudam o estado (variáveis) de um programa. Basicamente, descreve uma sequência de comandos que um computador deve executar.</a></li>
+    <li><a href="https://pt.wikipedia.org/wiki/Programa%C3%A7%C3%A3o_procedural" target="_blank">Paradigma procedimental</a> (referido erroneamente como procedural): paradigma de programação baseado na chamada de <a href="https://en.wikipedia.org/wiki/Subroutine" target="_blank">procedimentos</a>  (também conhecidos como rotinas, sub-rotinas, métodos ou funções). Permite a <a href="https://pt.wikipedia.org/wiki/Modularidade" target="_blank">modularidade</a> de um programa, definindo blocos de códigos estruturados que realizam atividades específicas/pontuais e podem ser chamados/acionados a qualquer momento.</li>
+</ul>
+
+</body>
+
+<script>
+    function mudarCSS(){
+        var tema = document.getElementsByTagName('link')[0];
+
+        if (tema.getAttribute('href') == '../estilos-claro.css') {
+                tema.setAttribute('href', '../estilos-escuro.css');
+        } else {
+            tema.setAttribute('href', '../estilos-claro.css');
+        }
+    }
+</script>
+
+</html>    
